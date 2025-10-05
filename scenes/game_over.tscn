@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpj0jr7poxynu"]
+
+[ext_resource type="Script" uid="uid://s2y76qsv8tbp" path="res://scenes/game_over.gd" id="1_tbwuq"]
+[ext_resource type="FontFile" uid="uid://3xx2n75vrhjm" path="res://assets/fonts/font.ttf" id="1_xeevv"]
+[ext_resource type="AudioStream" uid="uid://chde2yjjvvcis" path="res://assets/audio/sfx/dead.mp3" id="2_wqhvx"]
+[ext_resource type="PackedScene" uid="uid://cu5hvqwbf2yw7" path="res://scenes/button.tscn" id="3_racf3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tefeu"]
+font = ExtResource("1_xeevv")
+font_size = 52
+font_color = Color(1, 0.227451, 0.0352941, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[node name="GameOver" type="Node"]
+script = ExtResource("1_tbwuq")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 736.0
+
+[node name="Title" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 312.0
+offset_bottom = 224.0
+text = "GAME
+OVER!"
+label_settings = SubResource("LabelSettings_tefeu")
+
+[node name="Button" parent="Control/Panel" instance=ExtResource("3_racf3")]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 352.0
+offset_right = 272.0
+offset_bottom = 392.0
+text = "Main menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wqhvx")
+
+[connection signal="pressed" from="Control/Panel/Button" to="." method="_on_button_pressed"]
