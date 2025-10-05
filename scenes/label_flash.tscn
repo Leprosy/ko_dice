@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfi00hngtbnw8"]
+
+[ext_resource type="FontFile" uid="uid://3xx2n75vrhjm" path="res://assets/fonts/font.ttf" id="1_fwo73"]
+[ext_resource type="Script" uid="uid://ce86hn5ok7ccv" path="res://scenes/label_flash.gd" id="2_rovg4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u5sy4"]
+font = ExtResource("1_fwo73")
+font_size = 25
+font_color = Color(0.12549, 0.666667, 1, 1)
+outline_size = 14
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_gee14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:outline_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rovg4"]
+resource_name = "show"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(8, 1),
+"update": 0,
+"values": [Color(0.12549, 0.666667, 1, 1), Color(0, 0.454902, 0.976471, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2.5, 2.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:label_settings:outline_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0tnpc"]
+_data = {
+&"RESET": SubResource("Animation_gee14"),
+&"show": SubResource("Animation_rovg4")
+}
+
+[node name="Label - Flash" type="Label"]
+offset_left = 32.0
+offset_top = 512.0
+offset_right = 352.0
+offset_bottom = 704.0
+pivot_offset = Vector2(160, 96)
+text = "+9"
+label_settings = SubResource("LabelSettings_u5sy4")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_rovg4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0tnpc")
+}

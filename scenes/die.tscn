@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyh1km2rl2snu"]
+
+[ext_resource type="Texture2D" uid="uid://bxl6jbisuiw7g" path="res://assets/textures/dice-default.png" id="1_5x8g4"]
+[ext_resource type="Script" uid="uid://jcdtp24l2ti2" path="res://scenes/die.gd" id="1_hvcds"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o5qli"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hvcds"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("1_5x8g4")
+
+[sub_resource type="BoxMesh" id="BoxMesh_hvcds"]
+lightmap_size_hint = Vector2i(24, 36)
+material = SubResource("StandardMaterial3D_hvcds")
+size = Vector3(4, 4, 4)
+
+[node name="RigidBody3D - Die" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0)
+mass = 2.0
+gravity_scale = 5.0
+script = ExtResource("1_hvcds")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_o5qli")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_hvcds")

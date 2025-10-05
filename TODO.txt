@@ -1,0 +1,2 @@
+- Check value before flip dice to set which axis will be used?
+- Control.update_gui() params to tell which button is enabled/disabled?

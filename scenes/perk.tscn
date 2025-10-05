@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://c04n8nhvf1abb"]
+
+[ext_resource type="FontFile" uid="uid://3xx2n75vrhjm" path="res://assets/fonts/font.ttf" id="1_gepq8"]
+[ext_resource type="Script" uid="uid://bwnta8ofknb1o" path="res://scenes/perk.gd" id="1_t6y4v"]
+[ext_resource type="Texture2D" uid="uid://busub7271ihti" path="res://assets/icon.png" id="2_mreyu"]
+
+[sub_resource type="Theme" id="Theme_mreyu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6y4v"]
+bg_color = Color(0.669518, 0.624182, 0.429056, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0, 0.141176, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uuqod"]
+font = ExtResource("1_gepq8")
+
+[sub_resource type="LabelSettings" id="LabelSettings_4sf82"]
+font = ExtResource("1_gepq8")
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[node name="Perk" type="Node"]
+script = ExtResource("1_t6y4v")
+
+[node name="Panel - PerkCard" type="Panel" parent="."]
+offset_right = 256.0
+offset_bottom = 128.0
+theme = SubResource("Theme_mreyu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_t6y4v")
+
+[node name="Label - Name" type="Label" parent="Panel - PerkCard"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 245.0
+offset_bottom = 38.0
+text = "Name of the Perk"
+label_settings = SubResource("LabelSettings_uuqod")
+
+[node name="Label - Desc" type="Label" parent="Panel - PerkCard"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 40.0
+offset_right = 256.0
+offset_bottom = 137.0
+text = "This is a brief description of the perk.
+"
+label_settings = SubResource("LabelSettings_4sf82")
+autowrap_mode = 2
+
+[node name="Sprite2D - Icon" type="Sprite2D" parent="Panel - PerkCard"]
+position = Vector2(48, 72)
+scale = Vector2(0.116667, 0.116667)
+texture = ExtResource("2_mreyu")
+
+[connection signal="gui_input" from="Panel - PerkCard" to="." method="_on_panel__perk_card_gui_input"]
