@@ -7,7 +7,7 @@ var round = 0
 var score: int
 var dice_stopped: bool
 var is_calculating: bool
-#var perks: Array[Perk]
+var perks: Array
 
 var hand_data = [
     {"name": "Knockout!", "base": 48, "mult": 7 },

@@ -31,9 +31,9 @@ func do_roll():
         die.roll()
 
 func game_over():
-    do_roll()
+    #do_roll()
     #self.get_parent().change_scene_to_node(self, "round_win")
-    #self.get_parent().change_scene_to_node(self, "game_over")
+    self.get_parent().change_scene_to_node(self, "game_over")
 
 func round_win():
     self.get_parent().change_scene_to_node(self, "round_win")
