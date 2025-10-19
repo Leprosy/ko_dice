@@ -31,6 +31,8 @@ func display_flash(text, x, y):
     self.add_child(instance)
     $"../AudioStreamPlayer - SFX".play_flash_sfx()
     instance.display_flash(text, x, y)
+    await instance.get_children()[0].animation_finished
+    instance.queue_free()
 
 func display_info(text, end = false):
     $"Label - Info".text = text
@@ -48,7 +50,7 @@ func update_gui() -> void:
     $"Panel/Button - Play".disabled = State.hands <= 0 \
         or State.dice_stopped == false \
         or State.rolls >= 2
-    $"Panel/Label - Hand".text = "Hands %s" % State.hands
     $"Panel/Label - Round".text = "Round %s" % State.round
-    $"Panel/Label - Roll".text = "Rolls %s" % State.rolls
-    $"Panel/Label - Score".text = "Score: %s/%s" % [State.score, State.get_round_score()]
+    $"Panel/Label - Hand".text = "%s" % State.hands
+    $"Panel/Label - Roll".text = "%s" % State.rolls
+    $"Panel/Label - Score".text = "%s/%s" % [State.score, State.get_round_score()]

@@ -12,5 +12,5 @@ func display_flash(text, x, y):
     self.position.y = ypos
     print("LabelFlash: label at %s %s" % [x - 140, y - 80])
     $AnimationPlayer.play('show')
-    await $AnimationPlayer.animation_finished
-    self.queue_free()
+    # await $AnimationPlayer.animation_finished
+    # self.queue_free()

@@ -46,6 +46,11 @@ static var perks = [
         "dice": [4],
         "dice_plus": 5
     },
+    {
+        "perk_name": "First Mult",
+        "description": "Adds 5 mult to the first die",
+        "dice_plus": 5
+    }
 ]
 
 func _ready() -> void:

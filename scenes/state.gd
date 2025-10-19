@@ -32,6 +32,7 @@ func reset_state(new_level = false) -> void:
     if new_level:
         round = round + 1
     else:
+        perks = []
         round = 0
     score = 0
     dice_stopped = false

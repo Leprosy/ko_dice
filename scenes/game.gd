@@ -60,6 +60,7 @@ func play_roll():
     $"Control - GUI".update_gui()
     var points = 0
     var data = State.calculate_roll(dice)
+    var perks = State.perks
     await $"Control - GUI".display_info(data[0].name)
     await $"Control - GUI".display_info("+%s" % data[0].base)
     points += data[0].base
@@ -70,9 +71,25 @@ func play_roll():
         var value = dice[i].get_value()
         if value == 1:
             value = 10 #aces are 10s
-        $"Control - GUI".display_flash("+%s" % value, die_2d[0], die_2d[1])
+        await $"Control - GUI".display_flash("+%s" % value, die_2d[0], die_2d[1])
+        # Perks that mult/plus die
+        print(i)
+        print(perks)
+        var die_perks = perks.filter(func(item): return item.dice.has(i))
+        print(die_perks)
+        for perk in die_perks:
+            if perk.dice_plus:
+                await $"Control - GUI".display_flash(perk.perk_name, die_2d[0], die_2d[1])
+                await $"Control - GUI".display_flash("+%s" % perk.dice_plus, die_2d[0], die_2d[1])
+                points += perk.dice_plus
+            if perk.dice_mult:
+                await $"Control - GUI".display_flash(perk.perk_name, die_2d[0], die_2d[1])
+                await $"Control - GUI".display_flash("x%s" % perk.dice_mult, die_2d[0], die_2d[1])
+                points *= perk.dice_mult
+            #dice_mult
+        #await $"Control - GUI".display_flash("OAW", die_2d[0], die_2d[1])
         points += value
-        await dice[i].ready
+        # await dice[i].ready
 
     await $"Control - GUI".display_info("x%s" % data[0].mult)
     points *= data[0].mult

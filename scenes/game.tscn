@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d2pr7vd6i4us4"]
+[gd_scene load_steps=23 format=3 uid="uid://d2pr7vd6i4us4"]
 
 [ext_resource type="Script" uid="uid://bmwhkp8o8akjo" path="res://scenes/game.gd" id="1_iywne"]
 [ext_resource type="Texture2D" uid="uid://dd1uk6m8qpuit" path="res://assets/textures/table.png" id="1_lnu2h"]
@@ -26,13 +26,21 @@ bg_color = Color(0.194349, 0.194349, 0.194349, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_sugp2"]
 font = ExtResource("3_iywne")
-font_size = 22
+font_size = 24
 font_color = Color(1, 1, 0.156863, 1)
 shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.470588)
 shadow_offset = Vector2(4, 4)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jyhfs"]
+font = ExtResource("3_iywne")
+font_size = 20
+font_color = Color(0, 0.615686, 0.788235, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.470588)
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p57ef"]
 font = ExtResource("3_iywne")
 font_size = 20
 font_color = Color(0, 0.458824, 0.788235, 1)
@@ -234,38 +242,47 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_u5sy4")
 [node name="Label - Round" type="Label" parent="Control - GUI/Panel"]
 layout_mode = 0
 offset_left = 16.0
-offset_top = 16.0
+offset_top = 8.0
 offset_right = 192.0
-offset_bottom = 57.0
+offset_bottom = 52.0
 text = "Round"
 label_settings = SubResource("LabelSettings_sugp2")
 
 [node name="Label - Roll" type="Label" parent="Control - GUI/Panel"]
 layout_mode = 0
-offset_left = 16.0
+offset_left = 136.0
 offset_top = 64.0
-offset_right = 192.0
+offset_right = 240.0
 offset_bottom = 104.0
-text = "Rolls"
+text = "0"
 label_settings = SubResource("LabelSettings_jyhfs")
 
 [node name="Label - Hand" type="Label" parent="Control - GUI/Panel"]
 layout_mode = 0
-offset_left = 16.0
+offset_left = 136.0
 offset_top = 96.0
-offset_right = 192.0
+offset_right = 239.0
 offset_bottom = 136.0
-text = "Hands"
+text = "0"
 label_settings = SubResource("LabelSettings_jyhfs")
 
 [node name="Label - Score" type="Label" parent="Control - GUI/Panel"]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 128.0
-offset_right = 192.0
-offset_bottom = 168.0
-text = "Score"
+offset_left = 136.0
+offset_top = 144.0
+offset_right = 240.0
+offset_bottom = 184.0
+text = "0/0"
 label_settings = SubResource("LabelSettings_jyhfs")
+
+[node name="Label - 1" type="Label" parent="Control - GUI/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 120.0
+offset_bottom = 104.0
+text = "Rolls"
+label_settings = SubResource("LabelSettings_p57ef")
 
 [node name="Button - Roll" parent="Control - GUI/Panel" instance=ExtResource("6_u5sy4")]
 layout_mode = 0
@@ -291,6 +308,24 @@ offset_right = 368.0
 offset_bottom = 152.0
 theme_override_fonts/font = ExtResource("3_iywne")
 text = "Die!"
+
+[node name="Label - 2" type="Label" parent="Control - GUI/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 96.0
+offset_right = 120.0
+offset_bottom = 136.0
+text = "Hands"
+label_settings = SubResource("LabelSettings_p57ef")
+
+[node name="Label - 3" type="Label" parent="Control - GUI/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 144.0
+offset_right = 120.0
+offset_bottom = 184.0
+text = "Score"
+label_settings = SubResource("LabelSettings_p57ef")
 
 [node name="Label - Info" type="Label" parent="Control - GUI"]
 layout_mode = 0

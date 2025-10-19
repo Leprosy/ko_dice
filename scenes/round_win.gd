@@ -17,10 +17,10 @@ func _ready() -> void:
         i += 1
 
 func _on_button_pressed() -> void:
-    self.get_parent().change_scene_to_node(self, "round_win") #"game")
+    self.get_parent().change_scene_to_node(self, "game")
 
 func on_perk_clicked(perk):
     var State = get_tree().root.get_node("Main/State")
     var data = inst_to_dict(perk)
     State.perks.push_back(data)
-    self.get_parent().change_scene_to_node(self, "round_win") #"game")
+    self.get_parent().change_scene_to_node(self, "game")
