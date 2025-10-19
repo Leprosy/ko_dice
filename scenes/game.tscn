@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d2pr7vd6i4us4"]
+[gd_scene load_steps=25 format=3 uid="uid://d2pr7vd6i4us4"]
 
 [ext_resource type="Script" uid="uid://bmwhkp8o8akjo" path="res://scenes/game.gd" id="1_iywne"]
 [ext_resource type="Texture2D" uid="uid://dd1uk6m8qpuit" path="res://assets/textures/table.png" id="1_lnu2h"]
@@ -191,6 +191,22 @@ _data = {
 &"fade": SubResource("Animation_u5sy4")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_gee14"]
+font = ExtResource("3_iywne")
+font_size = 30
+font_color = Color(1, 1, 0.0509804, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.501961)
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0tnpc"]
+font = ExtResource("3_iywne")
+font_size = 30
+font_color = Color(0, 0.458824, 0.788235, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.470588)
+shadow_offset = Vector2(4, 4)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_lnu2h"]
 size = Vector3(1, 40, 60)
 
@@ -342,6 +358,24 @@ vertical_alignment = 1
 libraries = {
 &"": SubResource("AnimationLibrary_0tnpc")
 }
+
+[node name="Node2D" type="Node2D" parent="Control - GUI"]
+position = Vector2(192, 224)
+
+[node name="LabelPlus" type="Label" parent="Control - GUI/Node2D"]
+offset_left = -136.0
+offset_top = -32.0
+offset_right = -8.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_gee14")
+horizontal_alignment = 2
+
+[node name="LabelMult" type="Label" parent="Control - GUI/Node2D"]
+offset_left = 8.0
+offset_top = -32.0
+offset_right = 136.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_0tnpc")
 
 [node name="StaticBody3D - Wall" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 0)

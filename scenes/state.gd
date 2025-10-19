@@ -24,7 +24,7 @@ func _init():
     print("State: Ready")
 
 func get_round_score():
-    return round_score + (round - 1) * 150
+    return round_score + (round - 1) * 250
 
 func reset_state(new_level = false) -> void:
     rolls = 2

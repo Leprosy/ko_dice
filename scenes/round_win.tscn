@@ -46,16 +46,16 @@ offset_left = 96.0
 offset_top = 200.0
 offset_right = 294.0
 offset_bottom = 230.0
-text = "Choose a Perk"
+text = "Choose a Perk:"
 label_settings = SubResource("LabelSettings_bos5t")
 
 [node name="Button" parent="Control/Panel" instance=ExtResource("3_bos5t")]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 680.0
-offset_right = 288.0
-offset_bottom = 720.0
-text = "Next Round"
+offset_left = 32.0
+offset_top = 664.0
+offset_right = 352.0
+offset_bottom = 724.0
+text = "Or skip to Next Round"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_0dscd")

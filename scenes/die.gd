@@ -37,6 +37,7 @@ func get_random_force():
 
 func emit(value):
     $Particles.emitting = value
+    $Particles2.emitting = value
 
 func select() -> void:
     if selected:

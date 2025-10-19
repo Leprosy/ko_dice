@@ -44,6 +44,14 @@ func display_info(text, end = false):
     await $"Label - Info/AnimationPlayer".animation_finished
     return
 
+func update_pre_score(plus, mult):
+    if plus == 0 and mult == 0:
+        $Node2D/LabelPlus.text = ''
+        $Node2D/LabelMult.text = ''
+    else:
+        $Node2D/LabelPlus.text = "+ %s" % plus
+        $Node2D/LabelMult.text = "x %s" % mult
+
 func update_gui() -> void:
     $"Panel/Button - Roll".disabled = State.rolls <= 0 \
         or State.dice_stopped == false or State.is_calculating

@@ -15,12 +15,12 @@ static var perks = [
     {
         "perk_name": "Plus",
         "description": "Adds 10 points to the hand played",
-        "dice_plus": 10
+        "plus": 10
     },
     {
         "perk_name": "Mult",
         "description": "Adds 4 mult to the hand played",
-        "dice_mult": 4
+        "mult": 4
     },
     {
         "perk_name": "First",
@@ -31,13 +31,13 @@ static var perks = [
     {
         "perk_name": "Two Pair Plus",
         "description": "Adds 15 points if hand is 2 Pair",
-        "dice_plus": 15,
+        "plus": 15,
         "hand_type": "Two Pair"
     },
     {
         "perk_name": "Two Pair Mult",
         "description": "Adds 6 mult if the hand is 2 Pair",
-        "dice_mult": 6,
+        "mult": 6,
         "hand_type": "Two Pair"
     },
     {
@@ -49,6 +49,7 @@ static var perks = [
     {
         "perk_name": "First Mult",
         "description": "Adds 5 mult to the first die",
+        "dice": [0],
         "dice_plus": 5
     }
 ]
