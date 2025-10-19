@@ -21,6 +21,10 @@ func _ready() -> void:
         add_child(new_die)
         new_die.sleeping_state_changed.connect(_on_die_sleeping_state_changed)
         new_die.input_event.connect(create_cb(new_die))
+    for perk in State.perks: # Perkd die emit particles
+        for i in perk.dice:
+            dice[i].emit(true)
+
 
 func do_roll():
     State.dice_stopped = false
@@ -96,7 +100,7 @@ func play_roll():
     await $"Control - GUI".display_info("Total:\n%s" % points, true)
     for die in dice:
         if die.selected:
-            die.select()   
+            die.select()
             die.no_flip = false 
     State.score += points
     State.is_calculating = false

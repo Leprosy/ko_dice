@@ -35,6 +35,9 @@ func get_random_force():
     vect.normalized()
     return vect * factor
 
+func emit(value):
+    $Particles.emitting = value
+
 func select() -> void:
     if selected:
         $MeshInstance3D.get_active_material(0).albedo_color = "#ffffff"
