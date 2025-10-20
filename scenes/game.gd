@@ -84,21 +84,21 @@ func play_roll():
         for perk in die_perks:
             if perk.dice_plus:
                 plus += perk.dice_plus
-                $"Control - GUI".update_pre_score(plus, mult)
                 await $"Control - GUI".display_flash(perk.perk_name, die_2d[0], die_2d[1])
+                $"Control - GUI".update_pre_score(plus, mult)
                 await $"Control - GUI".display_flash("+%s" % perk.dice_plus, die_2d[0], die_2d[1])
             if perk.dice_mult:
                 mult += perk.dice_mult
-                $"Control - GUI".update_pre_score(plus, mult)
                 await $"Control - GUI".display_flash(perk.perk_name, die_2d[0], die_2d[1])
+                $"Control - GUI".update_pre_score(plus, mult)
                 await $"Control - GUI".display_flash("x%s" % perk.dice_mult, die_2d[0], die_2d[1])
 
     # Extra perk points
     for perk in perks:
         if perk.plus:
             plus += perk.plus
-            $"Control - GUI".update_pre_score(plus, mult)
             await $"Control - GUI".display_info("%s" % perk.perk_name)
+            $"Control - GUI".update_pre_score(plus, mult)
             await $"Control - GUI".display_info("+%s" % perk.plus)
 
     # Basea mult
@@ -110,8 +110,8 @@ func play_roll():
     for perk in perks:
         if perk.mult:
             mult += perk.mult
-            $"Control - GUI".update_pre_score(plus, mult)
             await $"Control - GUI".display_info("%s" % perk.perk_name)
+            $"Control - GUI".update_pre_score(plus, mult)
             await $"Control - GUI".display_info("x%s" % perk.mult)
 
     var points = plus * mult

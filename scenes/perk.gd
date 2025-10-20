@@ -50,7 +50,7 @@ static var perks = [
         "perk_name": "First Mult",
         "description": "Adds 5 mult to the first die",
         "dice": [0],
-        "dice_plus": 5
+        "dice_mult": 5
     }
 ]
 
