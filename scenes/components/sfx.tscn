@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2v3gglcnp6r5"]
+
+[ext_resource type="Script" uid="uid://4bkmulw5lx2d" path="res://scenes/components/sfx.gd" id="1_abq7b"]
+
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_iywne"]
+
+[node name="SFX" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamMP3_iywne")
+script = ExtResource("1_abq7b")

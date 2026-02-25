@@ -1,20 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccpekqxcvi6yy"]
+[gd_scene load_steps=4 format=3 uid="uid://2n0s6ge7iist"]
 
-[ext_resource type="Script" uid="uid://bd2a2p8niorfc" path="res://scenes/main.gd" id="1_jyhfs"]
-[ext_resource type="Script" uid="uid://bv8o7ihgdq3wm" path="res://scenes/audio_stream_player___music.gd" id="3_sugp2"]
-[ext_resource type="Script" uid="uid://dmwejgawnn86q" path="res://scenes/state.gd" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://i2b7tkcs0d8k" path="res://scenes/main_menu.tscn" id="4_tefeu"]
+[ext_resource type="Script" uid="uid://b8glhbdm0xhff" path="res://scenes/main.gd" id="1_3hyu0"]
+[ext_resource type="Script" uid="uid://cu00axf2weyxk" path="res://scenes/data/state.gd" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://d4ilx2f4ojflo" path="res://scenes/components/music.gd" id="4_jyhfs"]
 
 [node name="Main" type="Node"]
-script = ExtResource("1_jyhfs")
+script = ExtResource("1_3hyu0")
 
-[node name="MainMenu" parent="." instance=ExtResource("4_tefeu")]
-
-[node name="AudioStreamPlayer - Music" type="AudioStreamPlayer" parent="."]
-volume_db = -9.0
-script = ExtResource("3_sugp2")
+[node name="ActiveScene" type="Node" parent="."]
 
 [node name="State" type="Node" parent="."]
+script = ExtResource("3_sugp2")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
 script = ExtResource("4_jyhfs")
 
-[connection signal="finished" from="AudioStreamPlayer - Music" to="AudioStreamPlayer - Music" method="_on_finished"]
+[connection signal="finished" from="Music" to="Music" method="_on_finished"]

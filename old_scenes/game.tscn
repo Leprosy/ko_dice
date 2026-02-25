@@ -1,11 +1,12 @@
 [gd_scene load_steps=25 format=3 uid="uid://d2pr7vd6i4us4"]
 
-[ext_resource type="Script" uid="uid://bmwhkp8o8akjo" path="res://scenes/game.gd" id="1_iywne"]
+[ext_resource type="Script" uid="uid://bmwhkp8o8akjo" path="res://old_scenes/game.gd" id="1_iywne"]
 [ext_resource type="Texture2D" uid="uid://dd1uk6m8qpuit" path="res://assets/textures/table.png" id="1_lnu2h"]
 [ext_resource type="FontFile" uid="uid://3xx2n75vrhjm" path="res://assets/fonts/font.ttf" id="3_iywne"]
-[ext_resource type="Script" uid="uid://cv265fxjsq25h" path="res://scenes/control___gui.gd" id="3_lbhrr"]
-[ext_resource type="Script" uid="uid://bkhsetts2bsb8" path="res://scenes/audio_stream_player.gd" id="6_p57ef"]
-[ext_resource type="PackedScene" uid="uid://cu5hvqwbf2yw7" path="res://scenes/button.tscn" id="6_u5sy4"]
+[ext_resource type="Script" uid="uid://cv265fxjsq25h" path="res://old_scenes/control___gui.gd" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://danovh1n3gqfe" path="res://scenes/components/label_info.tscn" id="6_bhh7a"]
+[ext_resource type="Script" uid="uid://bkhsetts2bsb8" path="res://old_scenes/audio_stream_player.gd" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://cu5hvqwbf2yw7" path="res://old_scenes/button.tscn" id="6_u5sy4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sgp6g"]
 size = Vector3(60, 1, 60)
@@ -48,161 +49,55 @@ shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.470588)
 shadow_offset = Vector2(4, 4)
 
-[sub_resource type="LabelSettings" id="LabelSettings_u5sy4"]
+[sub_resource type="LabelSettings" id="LabelSettings_gee14"]
 font = ExtResource("3_iywne")
-font_size = 32
-font_color = Color(1, 1, 0.34902, 1)
-outline_size = 4
-outline_color = Color(1, 0.0941176, 1, 1)
-shadow_size = 4
-shadow_color = Color(0, 0, 0, 1)
+font_size = 30
+font_color = Color(0.296029, 0.657466, 0.999994, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.501961)
 shadow_offset = Vector2(4, 4)
 
-[sub_resource type="Animation" id="Animation_gee14"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_0tnpc"]
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:label_settings:font_color")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 0.34902, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:label_settings:shadow_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:label_settings:outline_color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0.0941176, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(32, 512)]
-}
 
-[sub_resource type="Animation" id="Animation_u5sy4"]
-resource_name = "fade"
-length = 1.5
+[sub_resource type="Animation" id="Animation_p57ef"]
+resource_name = "pop"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:label_settings:font_color")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(8, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 0.34902, 1), Color(1, 1, 0.34902, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:label_settings:shadow_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(8, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:label_settings:outline_color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(8, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(32, 512), Vector2(32, 400)]
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0tnpc"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vtaks"]
 _data = {
-&"RESET": SubResource("Animation_gee14"),
-&"fade": SubResource("Animation_u5sy4")
+&"RESET": SubResource("Animation_0tnpc"),
+&"pop": SubResource("Animation_p57ef")
 }
-
-[sub_resource type="LabelSettings" id="LabelSettings_gee14"]
-font = ExtResource("3_iywne")
-font_size = 30
-font_color = Color(0.6, 0.6, 0.6, 1)
-shadow_size = 10
-shadow_color = Color(0, 0, 0, 0.501961)
-shadow_offset = Vector2(4, 4)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0tnpc"]
 font = ExtResource("3_iywne")
 font_size = 30
-font_color = Color(0.6, 0.6, 0.6, 1)
+font_color = Color(0.973811, 0.38178, 0.368339, 1)
 shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.470588)
 shadow_offset = Vector2(4, 4)
@@ -343,21 +238,12 @@ offset_bottom = 184.0
 text = "Score"
 label_settings = SubResource("LabelSettings_p57ef")
 
-[node name="Label - Info" type="Label" parent="Control - GUI"]
+[node name="Label - Info" parent="Control - GUI" instance=ExtResource("6_bhh7a")]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 512.0
-offset_right = 352.0
-offset_bottom = 704.0
-pivot_offset = Vector2(160, 96)
-label_settings = SubResource("LabelSettings_u5sy4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control - GUI/Label - Info"]
-libraries = {
-&"": SubResource("AnimationLibrary_0tnpc")
-}
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 320.0
+offset_bottom = 192.0
 
 [node name="Node2D" type="Node2D" parent="Control - GUI"]
 position = Vector2(192, 224)
@@ -367,15 +253,28 @@ offset_left = -136.0
 offset_top = -32.0
 offset_right = -8.0
 offset_bottom = 23.0
+pivot_offset = Vector2(67, 29)
 label_settings = SubResource("LabelSettings_gee14")
-horizontal_alignment = 2
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control - GUI/Node2D/LabelPlus"]
+libraries = {
+&"": SubResource("AnimationLibrary_vtaks")
+}
 
 [node name="LabelMult" type="Label" parent="Control - GUI/Node2D"]
 offset_left = 8.0
 offset_top = -32.0
 offset_right = 136.0
 offset_bottom = 23.0
+pivot_offset = Vector2(65, 30)
 label_settings = SubResource("LabelSettings_0tnpc")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control - GUI/Node2D/LabelMult"]
+libraries = {
+&"": SubResource("AnimationLibrary_vtaks")
+}
 
 [node name="StaticBody3D - Wall" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 0)

@@ -1,6 +1,6 @@
 extends Node
 
-var die_scene = preload("res://scenes/die.tscn")
+var die_scene = preload("res://old_scenes/die.tscn")
 var dice = []
 var State
 var last_dblclick = false
@@ -91,7 +91,7 @@ func play_roll():
                 mult += perk.dice_mult
                 await $"Control - GUI".display_flash(perk.perk_name, die_2d[0], die_2d[1])
                 $"Control - GUI".update_pre_score(plus, mult)
-                await $"Control - GUI".display_flash("x%s" % perk.dice_mult, die_2d[0], die_2d[1])
+                await $"Control - GUI".display_flash("+%s" % perk.dice_mult, die_2d[0], die_2d[1])
 
     # Extra perk points
     for perk in perks:
@@ -101,10 +101,10 @@ func play_roll():
             $"Control - GUI".update_pre_score(plus, mult)
             await $"Control - GUI".display_info("+%s" % perk.plus)
 
-    # Basea mult
+    # Base mult
     mult += data[0].mult
     $"Control - GUI".update_pre_score(plus, mult)
-    await $"Control - GUI".display_info("x%s" % data[0].mult)
+    await $"Control - GUI".display_info("+%s" % data[0].mult, Color(1,0,0,1))
 
     # Extra perk mult
     for perk in perks:
@@ -112,10 +112,10 @@ func play_roll():
             mult += perk.mult
             await $"Control - GUI".display_info("%s" % perk.perk_name)
             $"Control - GUI".update_pre_score(plus, mult)
-            await $"Control - GUI".display_info("x%s" % perk.mult)
+            await $"Control - GUI".display_info("+%s" % perk.mult)
 
     var points = plus * mult
-    await $"Control - GUI".display_info("Total:\n%s" % points, true)
+    await $"Control - GUI".display_info("Total:\n%s" % points, Color(1,1,1,1), true)
     $"Control - GUI".update_pre_score(0, 0)
     for die in dice:
         if die.selected:

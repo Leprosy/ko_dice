@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dnk1wcvmmtoj7"]
 
-[ext_resource type="Script" uid="uid://10aiignqiowy" path="res://scenes/credits.gd" id="1_2fbfq"]
+[ext_resource type="Script" uid="uid://10aiignqiowy" path="res://old_scenes/credits.gd" id="1_2fbfq"]
 [ext_resource type="FontFile" uid="uid://3xx2n75vrhjm" path="res://assets/fonts/font.ttf" id="2_8gwij"]
-[ext_resource type="PackedScene" uid="uid://cu5hvqwbf2yw7" path="res://scenes/button.tscn" id="3_mah5v"]
+[ext_resource type="PackedScene" uid="uid://cu5hvqwbf2yw7" path="res://old_scenes/button.tscn" id="3_mah5v"]
 [ext_resource type="AudioStream" uid="uid://bddbnca2odlsq" path="res://assets/audio/sfx/claps1.mp3" id="4_2fbfq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tefeu"]

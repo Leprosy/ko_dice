@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c04n8nhvf1abb"]
 
 [ext_resource type="FontFile" uid="uid://3xx2n75vrhjm" path="res://assets/fonts/font.ttf" id="1_gepq8"]
-[ext_resource type="Script" uid="uid://bwnta8ofknb1o" path="res://scenes/perk.gd" id="1_t6y4v"]
+[ext_resource type="Script" uid="uid://bwnta8ofknb1o" path="res://scenes/components/perk.gd" id="1_t6y4v"]
 [ext_resource type="Texture2D" uid="uid://busub7271ihti" path="res://assets/icon.png" id="2_mreyu"]
 
 [sub_resource type="Theme" id="Theme_mreyu"]

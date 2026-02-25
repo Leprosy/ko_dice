@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://5hx4oruwajpn"]
+
+[ext_resource type="Script" uid="uid://gh8r1rnoo7mk" path="res://scenes/screens/help.gd" id="1_mnf8f"]
+
+[node name="Help" type="Node"]
+script = ExtResource("1_mnf8f")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 640.0
+offset_right = 315.0
+offset_bottom = 680.0
+text = "Back to Menu
+"
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 30.0
+text = "Help"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 126.0
+offset_bottom = 70.0
+theme_type_variation = &"MiniLabel"
+text = "This is help"
+
+[connection signal="pressed" from="Button" to="." method="on_back_pressed"]

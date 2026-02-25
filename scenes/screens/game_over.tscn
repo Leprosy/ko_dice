@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dpj0jr7poxynu"]
 
-[ext_resource type="Script" uid="uid://s2y76qsv8tbp" path="res://scenes/game_over.gd" id="1_tbwuq"]
+[ext_resource type="Script" uid="uid://s2y76qsv8tbp" path="res://scenes/screens/game_over.gd" id="1_tbwuq"]
 [ext_resource type="FontFile" uid="uid://3xx2n75vrhjm" path="res://assets/fonts/font.ttf" id="1_xeevv"]
 [ext_resource type="AudioStream" uid="uid://chde2yjjvvcis" path="res://assets/audio/sfx/dead.mp3" id="2_wqhvx"]
-[ext_resource type="PackedScene" uid="uid://cu5hvqwbf2yw7" path="res://scenes/button.tscn" id="3_racf3"]
+[ext_resource type="PackedScene" uid="uid://cu5hvqwbf2yw7" path="res://old_scenes/button.tscn" id="3_racf3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tefeu"]
 font = ExtResource("1_xeevv")

@@ -1,11 +1,13 @@
 extends RigidBody3D
 
+signal die_stopped
+
 const point = Vector3(0, 2.5, 0)
-var selected = false
-var no_flip = false
+var selected := false
+var no_flip := false
+var id: int
 
 func _ready() -> void:
-    add_user_signal("ready")
     var new_res = get_children()[1].mesh.duplicate(true)
     get_children()[1].mesh = new_res
 
@@ -53,7 +55,7 @@ func lift() -> void:
     var tween = get_tree().create_tween().set_trans(Tween.TRANS_ELASTIC)
     tween.tween_property($".", "position", Vector3(self.position.x, self.position.y + 4, self.position.z), 0.35)
     tween.tween_property($".", "position", pos, 0.35)
-    tween.tween_callback(func (): self.emit_signal("ready"))
+    tween.tween_callback(func (): self.emit_signal("die_stopped"))
     tween.play()
 
 func flip() -> void:
@@ -67,7 +69,7 @@ func flip() -> void:
     tween.tween_property($".", "position", Vector3(self.position.x, self.position.y + 4, self.position.z), 0.25)
     tween.tween_property($".", "rotation", rot, 0.5)
     tween.tween_property($".", "position", pos, 0.25)
-    tween.tween_callback(func (): self.emit_signal("ready"))
+    tween.tween_callback(func (): self.emit_signal("die_stopped"))
     tween.play()
 
 func roll() -> void:
@@ -81,3 +83,14 @@ func nudge() -> void:
 
 func needs_reroll():
     return self.get_value() == 666 or self.position.y > 2
+
+func _on_sleeping_state_changed() -> void:
+    if round(self.linear_velocity.length()) == 0.0:
+        emit_signal("die_stopped")
+
+func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+    print(event)
+
+func _on_mouse_entered() -> void:
+    print("oaw")
+    pass # Replace with function body.

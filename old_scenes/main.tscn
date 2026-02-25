@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccpekqxcvi6yy"]
+
+[ext_resource type="Script" uid="uid://bd2a2p8niorfc" path="res://old_scenes/main.gd" id="1_jyhfs"]
+[ext_resource type="Script" uid="uid://bv8o7ihgdq3wm" path="res://old_scenes/audio_stream_player___music.gd" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://dmwejgawnn86q" path="res://old_scenes/state.gd" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://i2b7tkcs0d8k" path="res://old_scenes/main_menu.tscn" id="4_tefeu"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_jyhfs")
+
+[node name="MainMenu" parent="." instance=ExtResource("4_tefeu")]
+
+[node name="AudioStreamPlayer - Music" type="AudioStreamPlayer" parent="."]
+volume_db = -9.0
+script = ExtResource("3_sugp2")
+
+[node name="State" type="Node" parent="."]
+script = ExtResource("4_jyhfs")
+
+[connection signal="finished" from="AudioStreamPlayer - Music" to="AudioStreamPlayer - Music" method="_on_finished"]

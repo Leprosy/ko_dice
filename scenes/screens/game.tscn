@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3 uid="uid://c0lwltjorng8h"]
+
+[ext_resource type="Script" uid="uid://dutuxxxurlihg" path="res://scenes/screens/game.gd" id="1_iwlfa"]
+[ext_resource type="Texture2D" uid="uid://dd1uk6m8qpuit" path="res://assets/textures/table.png" id="2_0q6jn"]
+[ext_resource type="PackedScene" uid="uid://b2v3gglcnp6r5" path="res://scenes/components/sfx.tscn" id="3_mu8e5"]
+[ext_resource type="PackedScene" uid="uid://b6pfwckjrtlrv" path="res://scenes/components/gui.tscn" id="4_ln6eb"]
+[ext_resource type="PackedScene" uid="uid://cqiwpggi5mjdg" path="res://scenes/helpers/signals.tscn" id="5_ln6eb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sgp6g"]
+size = Vector3(60, 1, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgp6g"]
+albedo_texture = ExtResource("2_0q6jn")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_sgp6g"]
+material = SubResource("StandardMaterial3D_sgp6g")
+size = Vector3(60, 1, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lnu2h"]
+size = Vector3(1, 40, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lbhrr"]
+size = Vector3(60, 40, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u5sy4"]
+size = Vector3(60, 1, 60)
+
+[node name="Game" type="Node"]
+script = ExtResource("1_iwlfa")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_sgp6g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_sgp6g")
+
+[node name="Light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 12, 0)
+shadow_enabled = true
+
+[node name="Camera" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, 47, -9)
+
+[node name="Camera3D" type="Camera3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.31134e-07, 3)
+current = true
+
+[node name="Wall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 0)
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 19, 0)
+shape = SubResource("BoxShape3D_lnu2h")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 19, 0)
+shape = SubResource("BoxShape3D_lnu2h")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 19, 25)
+shape = SubResource("BoxShape3D_lbhrr")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 18, -25)
+shape = SubResource("BoxShape3D_lbhrr")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 14, 0)
+shape = SubResource("BoxShape3D_u5sy4")
+
+[node name="SFX" parent="." instance=ExtResource("3_mu8e5")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="GUI" parent="." instance=ExtResource("4_ln6eb")]
+offset_bottom = 736.0
+
+[node name="Signals" parent="." instance=ExtResource("5_ln6eb")]
+
+[connection signal="input_event" from="Wall" to="." method="_on_wall_input_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

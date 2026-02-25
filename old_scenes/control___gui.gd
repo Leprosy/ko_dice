@@ -1,6 +1,6 @@
 extends Control
 
-var flash = preload("res://scenes/label_flash.tscn")
+var flash = preload("res://scenes/components/label_flash.tscn")
 var State
 
 func _ready():
@@ -34,7 +34,9 @@ func display_flash(text, x, y):
     await instance.get_children()[0].animation_finished
     instance.queue_free()
 
-func display_info(text, end = false):
+func display_info(text, color = Color(1,1,1,1), end = false):
+    print(color)
+    $"Label - Info".modulate = color
     $"Label - Info".text = text
     $"Label - Info/AnimationPlayer".play("fade")
     if end:
@@ -49,8 +51,14 @@ func update_pre_score(plus, mult):
         $Node2D/LabelPlus.text = ''
         $Node2D/LabelMult.text = ''
     else:
-        $Node2D/LabelPlus.text = "+ %s" % plus
-        $Node2D/LabelMult.text = "x %s" % mult
+        var plus_text = "+ %s" % plus
+        var mult_text = "x %s" % mult
+        if $Node2D/LabelPlus.text != plus_text:
+            $Node2D/LabelPlus/AnimationPlayer.play("pop")
+        if $Node2D/LabelMult.text != mult_text:
+            $Node2D/LabelMult/AnimationPlayer.play("pop")
+        $Node2D/LabelPlus.text = plus_text
+        $Node2D/LabelMult.text = mult_text
 
 func update_gui() -> void:
     $"Panel/Button - Roll".disabled = State.rolls <= 0 \
