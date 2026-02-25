@@ -68,13 +68,11 @@ func on_die_click(die):
         $SFX.play_sfx("error")
         return
     die.select()
-    print("ODC: OAW", die)
 
 func on_die_dblclick(die):
     if not state.can_flip():
         $SFX.play_sfx("error")
         return
-    print("ODDC: OAW", die)
     $SFX.play_sfx("flip")
     die.flip()
 
