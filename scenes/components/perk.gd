@@ -10,35 +10,50 @@ var dice_mult: int
 var plus: int
 var mult: int
 var hand_type: String
+var icon: String
+
+# Icon register
+var perk_icons = {
+    "fwd": preload("res://assets/images/perks/fwd.png"),
+    "plus": preload("res://assets/images/perks/plus.png"),
+    "rem": preload("res://assets/images/perks/rem.png"),
+    "undo": preload("res://assets/images/perks/undo.png"),
+    "default": preload("res://assets/images/perks/default.png")
+}
 
 static var perks = [
     {
         "perk_name": "Plus",
         "description": "Adds 10 points to the hand played",
-        "plus": 10
+        "plus": 10,
+        "icon": "plus"
     },
     {
         "perk_name": "Mult",
         "description": "Adds 4 mult to the hand played",
-        "mult": 4
+        "mult": 4,
+        "icon": "rem"
     },
     {
         "perk_name": "First",
         "description": "First die has 5 extra points",
         "dice": [0],
-        "dice_plus": 5
+        "dice_plus": 5,
+        "icon": "undo"
     },
     {
         "perk_name": "Two Pair Plus",
         "description": "Adds 15 points if hand is 2 Pair",
         "plus": 15,
-        "hand_type": "Two Pair"
+        "hand_type": "Two Pair",
+        "icon": "fwd"
     },
     {
         "perk_name": "Two Pair Mult",
         "description": "Adds 6 mult if the hand is 2 Pair",
         "mult": 6,
-        "hand_type": "Two Pair"
+        "hand_type": "Two Pair",
+        "icon": "fwd"
     },
     {
         "perk_name": "Last",
@@ -69,12 +84,15 @@ func get_perk(perk_name) -> void:
     perk = perk[0]
     for key in perk:
         self[key] = perk[key]
-    $"Panel - PerkCard/Label - Name".text = self.perk_name
-    $"Panel - PerkCard/Label - Desc".text = self.description
+    if not self.icon:
+        self.icon = "default"
+    $Panel/Name.text = self.perk_name
+    $Panel/Description.text = self.description
+    $Panel/Icon.texture = perk_icons[self.icon]
 
 func set_pos(x, y):
-    $"Panel - PerkCard".position.x = x
-    $"Panel - PerkCard".position.y = y
+    $Panel.position.x = x
+    $Panel.position.y = y
 
 func _on_panel__perk_card_gui_input(event: InputEvent) -> void:
     if event is InputEventMouseButton and not event.is_pressed():

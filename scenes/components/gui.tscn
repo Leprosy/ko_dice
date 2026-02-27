@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6pfwckjrtlrv"]
+[gd_scene load_steps=10 format=3 uid="uid://b6pfwckjrtlrv"]
 
 [ext_resource type="Theme" uid="uid://de5o7pp6f0xwq" path="res://resources/UIBase.tres" id="1_mlsba"]
 [ext_resource type="Script" uid="uid://dd6hotg6yl8wm" path="res://scenes/components/gui.gd" id="2_67e57"]
+[ext_resource type="Texture2D" uid="uid://dc3p7jai5i35w" path="res://assets/images/icons/options.png" id="3_vmhj3"]
 
 [sub_resource type="Animation" id="Animation_vmhj3"]
 length = 0.001
@@ -39,6 +40,91 @@ _data = {
 &"pulse": SubResource("Animation_67e57")
 }
 
+[sub_resource type="Animation" id="Animation_qk6hw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 0.25098, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 168)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p8o8g"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 0.25098, 1), Color(1, 1, 0.25098, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 168), Vector2(-40, 122)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 0.9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u8xp6"]
+_data = {
+&"RESET": SubResource("Animation_qk6hw"),
+&"fade_out": SubResource("Animation_p8o8g")
+}
+
 [node name="GUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -51,7 +137,7 @@ script = ExtResource("2_67e57")
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 384.0
-offset_bottom = 168.0
+offset_bottom = 176.0
 theme = ExtResource("1_mlsba")
 
 [node name="Round" type="Label" parent="Panel"]
@@ -138,23 +224,43 @@ offset_right = 376.0
 offset_bottom = 112.0
 text = "Play Hand"
 
+[node name="Options" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 120.0
+offset_right = 296.0
+offset_bottom = 168.0
+
+[node name="Options2" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 120.0
+offset_right = 376.0
+offset_bottom = 168.0
+icon = ExtResource("3_vmhj3")
+icon_alignment = 1
+
 [node name="AddScore" type="Control" parent="Panel"]
 visible = false
+modulate = Color(1, 1, 0.25098, 1)
 layout_mode = 2
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = 168.0
+offset_right = 384.0
+offset_bottom = 216.0
+pivot_offset = Vector2(192, 24)
 
 [node name="Add" type="Label" parent="Panel/AddScore"]
 layout_mode = 2
-offset_left = 208.0
-offset_top = 128.0
-offset_right = 288.0
-offset_bottom = 160.0
+offset_left = 96.0
+offset_right = 176.0
+offset_bottom = 40.0
 pivot_offset = Vector2(72, 16)
 theme = ExtResource("1_mlsba")
+theme_type_variation = &"HeaderSmall"
 text = "0"
 horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/AddScore/Add"]
 libraries = {
@@ -163,29 +269,34 @@ libraries = {
 
 [node name="X" type="Label" parent="Panel/AddScore"]
 layout_mode = 2
-offset_left = 288.0
-offset_top = 128.0
-offset_right = 312.0
-offset_bottom = 160.0
+offset_left = 176.0
+offset_right = 208.0
+offset_bottom = 40.0
 theme = ExtResource("1_mlsba")
-theme_type_variation = &"LabelData"
+theme_type_variation = &"LabelInfo"
 text = "x"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Mult" type="Label" parent="Panel/AddScore"]
 layout_mode = 2
-offset_left = 312.0
-offset_top = 128.0
-offset_right = 376.0
-offset_bottom = 160.0
+offset_left = 208.0
+offset_right = 280.0
+offset_bottom = 40.0
 pivot_offset = Vector2(8, 16)
 theme = ExtResource("1_mlsba")
-theme_type_variation = &"LabelInfo"
+theme_type_variation = &"HeaderSmall"
 text = "1"
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/AddScore/Mult"]
 libraries = {
 &"": SubResource("AnimationLibrary_p8o8g")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/AddScore"]
+libraries = {
+&"": SubResource("AnimationLibrary_u8xp6")
 }
 
 [connection signal="pressed" from="Panel/Roll" to="." method="_on_roll_pressed"]

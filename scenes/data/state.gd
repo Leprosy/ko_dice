@@ -2,7 +2,7 @@ extends Node
 
 class_name State
 
-var round_score := 350
+var round_score := 450
 var rolls: int
 var hands: int
 var round := 0
@@ -32,7 +32,7 @@ func get_available_hands() -> int:
     return 4
 
 func get_available_rolls() -> int:
-    return 2
+    return 666
 
 func can_flip() -> bool:
     return not self.is_busy and self.rolls < self.get_available_rolls() - 1

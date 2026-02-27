@@ -4,6 +4,10 @@
 - Implement a Keep an Ace mechanic: 
     hold a die for 2 seconds turns it into an ace and roll the rest,
     playing the hand automatically. Only works after at least one roll.
+- Name of the hand and perk in yellow
+- Improve die selection indicator (border? another color?)
+- We need a way to check current perks
+- Die perk "Perk" should be adjusted if the die is on bottom too
 
 Palette:
 pur 7209b7

@@ -46,6 +46,8 @@ func do_roll() -> void:
         if not die.selected:
             die.roll()
             signals.push_back(die.die_stopped)
+        else:
+            die.cant_flip = true # TODO: ???
     $Signals.sumbit(signals)
     await $Signals.completed # TODO: Check all die are stopped
 
@@ -70,7 +72,7 @@ func on_die_click(die):
     die.select()
 
 func on_die_dblclick(die):
-    if not state.can_flip():
+    if not state.can_flip() or die.cant_flip:
         $SFX.play_sfx("error")
         return
     $SFX.play_sfx("flip")
@@ -90,9 +92,9 @@ func display_hand_results() -> void:
     await $GUI.adding_points(plus, 0, false)
     await $GUI.display_info(data[0].name)
 
-    # dice plus
+    # dice bonus
     for i in data[1]:
-        dice[i].lift()
+        await dice[i].lift()
         var die_2d = get_viewport().get_camera_3d().unproject_position(dice[i].position)
         var value = dice[i].get_value()
         if value == 1:
@@ -100,7 +102,7 @@ func display_hand_results() -> void:
         plus += value
         $SFX.play_sfx("flash")
         await $GUI.adding_points(plus, 0, false)
-        await $GUI.display_flash("+%s" % value, die_2d[0], die_2d[1])
+        await $GUI.display_flash("+%s" % value, die_2d[0], die_2d[1], Color.DEEP_SKY_BLUE)
 
         # Perks that mult/plus die
         var die_perks = perks.filter(func(item): return item.dice.has(i))
@@ -118,7 +120,7 @@ func display_hand_results() -> void:
                 $GUI.display_flash("Perk", die_2d[0], die_2d[1] - 50, Color.CORNFLOWER_BLUE)
                 await $GUI.display_flash(perk.perk_name, die_2d[0], die_2d[1])
                 await $GUI.adding_points(0, mult, false)
-                await $GUI.display_flash("+%s" % perk.dice_mult, die_2d[0], die_2d[1], Color.ORANGE)
+                await $GUI.display_flash("+%sX" % perk.dice_mult, die_2d[0], die_2d[1], Color.ORANGE)
     
     # extra perk points
     for perk in perks:
@@ -155,5 +157,4 @@ func display_hand_results() -> void:
     for die in dice:
         if die.selected:
             die.select()
-            die.no_flip = false 
     state.score += points

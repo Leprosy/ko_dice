@@ -26,6 +26,8 @@ func display_info(text: String, color := Color(1,1,1,1)) -> void:
 
 func adding_points(add: int, mult: int, end: bool) -> void:
     if end:
+        $Panel/AddScore/AnimationPlayer.play("fade_out")
+        await $Panel/AddScore/AnimationPlayer.animation_finished
         $Panel/AddScore.visible = false # TODO: fadeout?
         $Panel/AddScore/Add.text = "0"
         $Panel/AddScore/Mult.text = "1"

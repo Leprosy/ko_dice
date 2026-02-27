@@ -99,7 +99,7 @@ tracks/3/path = NodePath(".:theme_override_colors/font_shadow_color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.3),
+"times": PackedFloat32Array(0, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [null, Color(0, 0, 0, 0)]
@@ -118,8 +118,6 @@ offset_right = 352.0
 offset_bottom = 704.0
 pivot_offset = Vector2(160, 96)
 theme_override_constants/line_spacing = -8
-text = "OAW
-OAW"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_ch7j7")

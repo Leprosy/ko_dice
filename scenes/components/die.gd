@@ -7,7 +7,7 @@ signal die_dblclicked
 const point = Vector3(0, 2.5, 0)
 const no_value = 666
 var selected := false
-var no_flip := false
+var cant_flip := false
 var clicks := 0
 var id: int
 
@@ -41,7 +41,7 @@ func get_random_force():
     vect.normalized()
     return vect * factor
 
-func emit(value):
+func emit(value: bool):
     $Particles.emitting = value
     $Particles2.emitting = value
 
@@ -50,17 +50,18 @@ func select() -> void:
         $MeshInstance3D.get_active_material(0).albedo_color = "#ffffff"
         set("freeze", false)
     else:
-        $MeshInstance3D.get_active_material(0).albedo_color = "#ffaaaa"
+        $MeshInstance3D.get_active_material(0).albedo_color = "#6666ff"
         set("freeze", true)
-    selected = not selected
+    self.selected = not self.selected
 
 func lift() -> void:
     var pos = Vector3(self.position.x, self.position.y, self.position.z)
     var tween = get_tree().create_tween().set_trans(Tween.TRANS_ELASTIC)
-    tween.tween_property($".", "position", Vector3(self.position.x, self.position.y + 4, self.position.z), 0.35)
-    tween.tween_property($".", "position", pos, 0.35)
+    tween.tween_property($".", "position", Vector3(self.position.x, self.position.y + 4, self.position.z), 0.2)
+    tween.tween_property($".", "position", pos, 0.2)
     tween.tween_callback(func (): self.emit_signal("die_stopped"))
     tween.play()
+    await tween.finished
 
 func flip() -> void:
     var pos = Vector3(self.position.x, self.position.y, self.position.z)
@@ -77,11 +78,7 @@ func flip() -> void:
     tween.play()
 
 func roll() -> void:
-    if not selected:
-        $RollTimer.start()
-        apply_impulse(get_random_force(), point)
-    else:
-        no_flip = true
+    apply_impulse(get_random_force(), point)
 
 func nudge() -> void:
     apply_impulse(get_random_force() * 0.3, point)
@@ -91,10 +88,10 @@ func needs_reroll():
 
 func _on_sleeping_state_changed() -> void:
     if round(self.linear_velocity.length()) == 0.0:
-        print("Die: sleepchange 0.0", self)
         if self.needs_reroll():
             self.nudge()
         else:
+            print(self.get_value(), ":", self.position.y)
             print("Die: stopped ", self)
             emit_signal("die_stopped")
 
@@ -111,9 +108,3 @@ func _on_click_timer_timeout() -> void:
         print("Die: clicked ", self)
         emit_signal("die_clicked", self)
     self.clicks = 0
-
-func _on_roll_timer_timeout() -> void:
-    print("RollTimer end", self)
-    if self.needs_reroll():
-        print("Oops")
-        self.nudge()
