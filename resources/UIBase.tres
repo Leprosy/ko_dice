@@ -1,7 +1,12 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://de5o7pp6f0xwq"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://de5o7pp6f0xwq"]
 
 [ext_resource type="FontFile" uid="uid://c0wpjtf3bjrcd" path="res://assets/fonts/pixel.ttf" id="1_q2ifl"]
 [ext_resource type="FontFile" uid="uid://3xx2n75vrhjm" path="res://assets/fonts/font.ttf" id="1_sva12"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q2ifl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnhyr"]
+bg_color = Color(0, 0.359541, 0.655097, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sva12"]
 bg_color = Color(0, 0.422584, 0.762772, 1)
@@ -21,6 +26,8 @@ shadow_offset = Vector2(4, 4)
 
 [resource]
 default_font = ExtResource("1_sva12")
+Button/styles/focus = SubResource("StyleBoxEmpty_q2ifl")
+Button/styles/hover = SubResource("StyleBoxFlat_fnhyr")
 Button/styles/normal = SubResource("StyleBoxFlat_sva12")
 Button/styles/pressed = SubResource("StyleBoxFlat_5qtvl")
 DangerButton/base_type = &"Button"
