@@ -246,8 +246,9 @@ pivot_offset = Vector2(192, 24)
 [node name="Add" type="Label" parent="Panel/AddScore"]
 layout_mode = 2
 offset_left = 96.0
+offset_top = 8.0
 offset_right = 176.0
-offset_bottom = 40.0
+offset_bottom = 48.0
 pivot_offset = Vector2(72, 16)
 theme = ExtResource("1_mlsba")
 theme_type_variation = &"HeaderSmall"
@@ -263,8 +264,9 @@ libraries = {
 [node name="X" type="Label" parent="Panel/AddScore"]
 layout_mode = 2
 offset_left = 176.0
+offset_top = 8.0
 offset_right = 208.0
-offset_bottom = 40.0
+offset_bottom = 48.0
 theme = ExtResource("1_mlsba")
 theme_type_variation = &"LabelInfo"
 text = "x"
@@ -274,8 +276,9 @@ vertical_alignment = 1
 [node name="Mult" type="Label" parent="Panel/AddScore"]
 layout_mode = 2
 offset_left = 208.0
+offset_top = 8.0
 offset_right = 280.0
-offset_bottom = 40.0
+offset_bottom = 48.0
 pivot_offset = Vector2(8, 16)
 theme = ExtResource("1_mlsba")
 theme_type_variation = &"HeaderSmall"
