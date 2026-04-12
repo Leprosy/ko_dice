@@ -1,13 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6mf7ubbwu7be"]
+[gd_scene load_steps=12 format=3 uid="uid://b6mf7ubbwu7be"]
 
 [ext_resource type="Script" uid="uid://dknhqwytd8h5y" path="res://scenes/components/die.gd" id="1_h2dt8"]
 [ext_resource type="Texture2D" uid="uid://bxl6jbisuiw7g" path="res://assets/textures/dice-default.png" id="2_gmibq"]
+[ext_resource type="Shader" uid="uid://dwhqyps0tq5b7" path="res://resources/die_outline.gdshader" id="3_gmibq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o5qli"]
 size = Vector3(4, 4, 4)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmibq"]
+render_priority = 0
+shader = ExtResource("3_gmibq")
+shader_parameter/outline_color = Color(0.372549, 0.854902, 0, 1)
+shader_parameter/outline_width = 4.0
+shader_parameter/visible = false
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hvcds"]
 resource_local_to_scene = true
+next_pass = SubResource("ShaderMaterial_gmibq")
 albedo_texture = ExtResource("2_gmibq")
 
 [sub_resource type="BoxMesh" id="BoxMesh_hvcds"]

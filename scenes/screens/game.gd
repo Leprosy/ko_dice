@@ -64,6 +64,9 @@ func do_play_hand() -> void:
     state.is_busy = false
     $GUI.update(state)
     self.check_round_results()
+    
+func do_toggle_control_panel() -> void:
+    $ControlPanel.visible = not $ControlPanel.visible
 
 func on_die_click(die):
     if not state.can_select():

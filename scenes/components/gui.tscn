@@ -224,14 +224,7 @@ offset_right = 376.0
 offset_bottom = 112.0
 text = "Play Hand"
 
-[node name="Options" type="Button" parent="Panel"]
-layout_mode = 0
-offset_left = 224.0
-offset_top = 120.0
-offset_right = 296.0
-offset_bottom = 168.0
-
-[node name="Options2" type="Button" parent="Panel"]
+[node name="ControlPanel" type="Button" parent="Panel"]
 layout_mode = 0
 offset_left = 304.0
 offset_top = 120.0
@@ -301,3 +294,4 @@ libraries = {
 
 [connection signal="pressed" from="Panel/Roll" to="." method="_on_roll_pressed"]
 [connection signal="pressed" from="Panel/PlayHand" to="." method="_on_play_hand_pressed"]
+[connection signal="pressed" from="Panel/ControlPanel" to="." method="_on_control_panel_pressed"]

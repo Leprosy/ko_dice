@@ -46,11 +46,15 @@ func emit(value: bool):
     $Particles2.emitting = value
 
 func select() -> void:
+    #print($MeshInstance3D.get_instance_shader_parameter("visible"))
+
     if selected:
         $MeshInstance3D.get_active_material(0).albedo_color = "#ffffff"
+        #$MeshInstance3D.get_active_material(0).next_pass.set_shader_param("visible", false);
         set("freeze", false)
     else:
-        $MeshInstance3D.get_active_material(0).albedo_color = "#6666ff"
+        $MeshInstance3D.get_active_material(0).albedo_color = "#5fda000a"
+        #$MeshInstance3D.get_active_material(0).set_shader_param("visible", true);
         set("freeze", true)
     self.selected = not self.selected
 

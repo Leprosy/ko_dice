@@ -47,3 +47,6 @@ func _on_roll_pressed() -> void:
 
 func _on_play_hand_pressed() -> void:
     $"..".do_play_hand()
+
+func _on_control_panel_pressed() -> void:
+    $"..".do_toggle_control_panel()

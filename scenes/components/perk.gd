@@ -96,4 +96,6 @@ func set_pos(x, y):
 
 func _on_panel__perk_card_gui_input(event: InputEvent) -> void:
     if event is InputEventMouseButton and not event.is_pressed():
-        self.get_parent().on_perk_clicked(self)
+        if "on_perk_clicked" in self.get_parent():
+            self.get_parent().on_perk_clicked(self)
+        print("Fuck you, this is the control panel")

@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7oqnsxnri8yp"]
+[gd_scene load_steps=6 format=3 uid="uid://b7oqnsxnri8yp"]
 
 [ext_resource type="Script" uid="uid://1rsjr4tcpn5w" path="res://scenes/screens/round_win.gd" id="1_0dscd"]
 [ext_resource type="FontFile" uid="uid://3xx2n75vrhjm" path="res://assets/fonts/font.ttf" id="2_5s3p5"]
-[ext_resource type="PackedScene" uid="uid://cu5hvqwbf2yw7" path="res://old_scenes/button.tscn" id="3_bos5t"]
 [ext_resource type="AudioStream" uid="uid://bddbnca2odlsq" path="res://assets/audio/sfx/claps1.mp3" id="4_0dscd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tefeu"]
@@ -49,7 +48,7 @@ offset_bottom = 230.0
 text = "Choose a Perk:"
 label_settings = SubResource("LabelSettings_bos5t")
 
-[node name="Button" parent="Control/Panel" instance=ExtResource("3_bos5t")]
+[node name="Button" type="Button" parent="Control/Panel"]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 664.0
