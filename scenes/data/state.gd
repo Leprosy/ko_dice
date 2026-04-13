@@ -32,9 +32,11 @@ func get_available_hands() -> int:
     return 4
 
 func get_available_rolls() -> int:
-    return 666
+    return 2
 
 func can_flip() -> bool:
+    print(self.is_busy)
+    print(self.rolls < self.get_available_rolls() - 1)
     return not self.is_busy and self.rolls < self.get_available_rolls() - 1
 
 func can_select() -> bool:

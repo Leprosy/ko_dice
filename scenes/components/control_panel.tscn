@@ -48,6 +48,7 @@ offset_bottom = 38.0
 text = "Options"
 
 [node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 256.0
 offset_right = 267.0
@@ -65,5 +66,5 @@ offset_bottom = 416.0
 layout_mode = 2
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="Panel/Continue" to="." method="_on_roll_pressed"]
-[connection signal="pressed" from="Panel/Quit" to="." method="_on_play_hand_pressed"]
+[connection signal="pressed" from="Panel/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Panel/Quit" to="." method="_on_quit_pressed"]

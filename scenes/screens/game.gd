@@ -56,6 +56,8 @@ func do_roll() -> void:
     $GUI.update(state)
 
 func do_play_hand() -> void:
+    for die in dice:
+        die.cant_flip = false
     state.is_busy = true
     state.play_hand()
     $GUI.update(state)
