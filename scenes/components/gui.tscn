@@ -1,8 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6pfwckjrtlrv"]
+[gd_scene load_steps=12 format=3 uid="uid://b6pfwckjrtlrv"]
 
 [ext_resource type="Theme" uid="uid://de5o7pp6f0xwq" path="res://resources/UIBase.tres" id="1_mlsba"]
 [ext_resource type="Script" uid="uid://dd6hotg6yl8wm" path="res://scenes/components/gui.gd" id="2_67e57"]
+[ext_resource type="Texture2D" uid="uid://dwtpvy6rudav1" path="res://assets/textures/wood.png" id="3_p8o8g"]
 [ext_resource type="Texture2D" uid="uid://dc3p7jai5i35w" path="res://assets/images/icons/options.png" id="3_vmhj3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qk6hw"]
+texture = ExtResource("3_p8o8g")
 
 [sub_resource type="Animation" id="Animation_vmhj3"]
 length = 0.001
@@ -139,6 +143,7 @@ layout_mode = 0
 offset_right = 384.0
 offset_bottom = 176.0
 theme = ExtResource("1_mlsba")
+theme_override_styles/panel = SubResource("StyleBoxTexture_qk6hw")
 
 [node name="Round" type="Label" parent="Panel"]
 layout_mode = 0
@@ -148,7 +153,6 @@ offset_right = 160.0
 offset_bottom = 56.0
 theme = ExtResource("1_mlsba")
 theme_type_variation = &"LabelInfo"
-theme_override_font_sizes/font_size = 22
 text = "Round"
 
 [node name="Label2" type="Label" parent="Panel"]

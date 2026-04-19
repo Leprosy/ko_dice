@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://c0lwltjorng8h"]
 
 [ext_resource type="Script" uid="uid://dutuxxxurlihg" path="res://scenes/screens/game.gd" id="1_iwlfa"]
-[ext_resource type="Texture2D" uid="uid://dd1uk6m8qpuit" path="res://assets/textures/table.png" id="2_0q6jn"]
+[ext_resource type="Texture2D" uid="uid://d17ha6nlf64yq" path="res://assets/textures/table.png" id="2_4ji0l"]
 [ext_resource type="PackedScene" uid="uid://b2v3gglcnp6r5" path="res://scenes/components/sfx.tscn" id="3_mu8e5"]
 [ext_resource type="PackedScene" uid="uid://b6pfwckjrtlrv" path="res://scenes/components/gui.tscn" id="4_ln6eb"]
 [ext_resource type="PackedScene" uid="uid://cqiwpggi5mjdg" path="res://scenes/helpers/signals.tscn" id="5_ln6eb"]
@@ -11,7 +11,7 @@
 size = Vector3(60, 1, 60)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgp6g"]
-albedo_texture = ExtResource("2_0q6jn")
+albedo_texture = ExtResource("2_4ji0l")
 uv1_scale = Vector3(3, 2, 1)
 texture_filter = 1
 

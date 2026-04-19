@@ -1,16 +1,82 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjwlrcevetkf8"]
+[gd_scene load_steps=10 format=3 uid="uid://bjwlrcevetkf8"]
 
 [ext_resource type="Script" uid="uid://c8j4blw65uxja" path="res://scenes/screens/main_menu.gd" id="1_dxijm"]
+[ext_resource type="Texture2D" uid="uid://dwtpvy6rudav1" path="res://assets/textures/wood.png" id="2_tgk1t"]
+[ext_resource type="Texture2D" uid="uid://busub7271ihti" path="res://assets/icon.png" id="3_5weqt"]
+[ext_resource type="FontFile" uid="uid://3xx2n75vrhjm" path="res://assets/fonts/font_large.ttf" id="4_kacuo"]
+
+[sub_resource type="Theme" id="Theme_idsrk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5weqt"]
+texture = ExtResource("2_tgk1t")
+
+[sub_resource type="Animation" id="Animation_kacuo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5weqt"]
+resource_name = "pulse"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kr80i"]
+_data = {
+&"RESET": SubResource("Animation_kacuo"),
+&"pulse": SubResource("Animation_5weqt")
+}
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_dxijm")
 
+[node name="Panel" type="Panel" parent="."]
+offset_right = 384.0
+offset_bottom = 736.0
+theme = SubResource("Theme_idsrk")
+theme_override_styles/panel = SubResource("StyleBoxTexture_5weqt")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.372549)
+position = Vector2(192, 208)
+scale = Vector2(0.533333, 0.544444)
+texture = ExtResource("3_5weqt")
+
 [node name="Label" type="Label" parent="."]
-offset_left = 120.0
+offset_left = 24.0
 offset_top = 160.0
-offset_right = 259.0
-offset_bottom = 190.0
-text = "Main Menu"
+offset_right = 360.0
+offset_bottom = 226.0
+pivot_offset = Vector2(168, 32)
+theme_type_variation = &"HeaderLarge"
+theme_override_fonts/font = ExtResource("4_kacuo")
+text = "Knock Out!"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
+libraries = {
+&"": SubResource("AnimationLibrary_kr80i")
+}
 
 [node name="Button" type="Button" parent="."]
 offset_left = 128.0

@@ -1,23 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://c04n8nhvf1abb"]
+[gd_scene load_steps=8 format=3 uid="uid://c04n8nhvf1abb"]
 
-[ext_resource type="FontFile" uid="uid://3xx2n75vrhjm" path="res://assets/fonts/font.ttf" id="1_gepq8"]
 [ext_resource type="Script" uid="uid://bwnta8ofknb1o" path="res://scenes/components/perk.gd" id="1_t6y4v"]
+[ext_resource type="Texture2D" uid="uid://dwtpvy6rudav1" path="res://assets/textures/wood.png" id="2_gtsmi"]
 [ext_resource type="Texture2D" uid="uid://busub7271ihti" path="res://assets/icon.png" id="2_mreyu"]
 
 [sub_resource type="Theme" id="Theme_mreyu"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6y4v"]
-bg_color = Color(0.592542, 0.496547, 0.330954, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.8, 0, 0.141176, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h7icp"]
+texture = ExtResource("2_gtsmi")
 
-[sub_resource type="LabelSettings" id="LabelSettings_4sf82"]
-font = ExtResource("1_gepq8")
-font_size = 12
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="Theme" id="Theme_gtsmi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7icp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.522457, 0.522457, 3.85046e-07, 1)
 
 [node name="Perk" type="Node"]
 script = ExtResource("1_t6y4v")
@@ -26,7 +26,15 @@ script = ExtResource("1_t6y4v")
 offset_right = 256.0
 offset_bottom = 128.0
 theme = SubResource("Theme_mreyu")
-theme_override_styles/panel = SubResource("StyleBoxFlat_t6y4v")
+theme_override_styles/panel = SubResource("StyleBoxTexture_h7icp")
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 128.0
+mouse_filter = 1
+theme = SubResource("Theme_gtsmi")
+theme_override_styles/panel = SubResource("StyleBoxFlat_h7icp")
 
 [node name="Name" type="Label" parent="Panel"]
 layout_mode = 0
@@ -39,11 +47,11 @@ text = "Name of the Perk"
 [node name="Description" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 88.0
-offset_top = 24.0
+offset_top = 32.0
 offset_right = 256.0
-offset_bottom = 128.0
+offset_bottom = 136.0
+theme_type_variation = &"MiniLabel"
 text = "This is a brief description of the perk."
-label_settings = SubResource("LabelSettings_4sf82")
 vertical_alignment = 1
 autowrap_mode = 2
 

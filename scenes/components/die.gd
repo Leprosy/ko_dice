@@ -95,11 +95,10 @@ func _on_sleeping_state_changed() -> void:
         if self.needs_reroll():
             self.nudge()
         else:
-            print(self.get_value(), ":", self.position.y)
             print("Die: stopped ", self)
             emit_signal("die_stopped")
 
-func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+func _on_input_event(_camera: Node, event: InputEvent) -> void:
     if event is InputEventMouseButton and event.pressed:
         self.clicks += 1
         $ClickTimer.start()

@@ -3,9 +3,9 @@ extends Screen
 var perk = preload("res://scenes/components/perk.tscn")
 
 func _ready() -> void:
-    var State = get_tree().root.get_node("Main/State")
+    var state = get_tree().root.get_node("Main/State")
     $AudioStreamPlayer.play()
-    var available_perks = Perk.get_available_perks(State.perks)
+    var available_perks = Perk.get_available_perks(state.perks)
     available_perks.shuffle()
     available_perks = available_perks.slice(0, 3)
     var i = 0
@@ -19,8 +19,8 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
     self.Main.set_active_scene("game")
 
-func on_perk_clicked(perk):
-    var State = get_tree().root.get_node("Main/State")
-    var data = inst_to_dict(perk)
-    State.perks.push_back(data)
+func on_perk_clicked(perk_clicked):
+    var state = get_tree().root.get_node("Main/State")
+    var data = inst_to_dict(perk_clicked)
+    state.perks.push_back(data)
     self.Main.set_active_scene("game")

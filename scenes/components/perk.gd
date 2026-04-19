@@ -77,10 +77,9 @@ static func get_available_perks(cur_perks):
     var available_perks = perks.filter(func(item): return not cur_perk_names.has(item.perk_name))
     return available_perks.map(func(item): return item.perk_name)
 
-func get_perk(perk_name) -> void:
+func get_perk(pname) -> void:
     print("Perk: get_perk")
-    print(perk_name)
-    var perk = perks.filter(func(item): return item.perk_name == perk_name)
+    var perk = perks.filter(func(item): return item.perk_name == pname)
     perk = perk[0]
     for key in perk:
         self[key] = perk[key]
