@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccyh74g6yalfv"
-path.s3tc="res://.godot/imported/old_table.png-63615f17d500b9515abdd2ff6dfd3f55.s3tc.ctex"
-path.etc2="res://.godot/imported/old_table.png-63615f17d500b9515abdd2ff6dfd3f55.etc2.ctex"
+uid="uid://d17ha6nlf64yq"
+path.s3tc="res://.godot/imported/green.png-0b2a315d35e5364d6c0c5b6ee845a6f6.s3tc.ctex"
+path.etc2="res://.godot/imported/green.png-0b2a315d35e5364d6c0c5b6ee845a6f6.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/old_table.png"
-dest_files=["res://.godot/imported/old_table.png-63615f17d500b9515abdd2ff6dfd3f55.s3tc.ctex", "res://.godot/imported/old_table.png-63615f17d500b9515abdd2ff6dfd3f55.etc2.ctex"]
+source_file="res://assets/textures/green.png"
+dest_files=["res://.godot/imported/green.png-0b2a315d35e5364d6c0c5b6ee845a6f6.s3tc.ctex", "res://.godot/imported/green.png-0b2a315d35e5364d6c0c5b6ee845a6f6.etc2.ctex"]
 
 [params]
 
