@@ -3,7 +3,10 @@ extends AudioStreamPlayer
 var bgs = [
     preload("res://assets/audio/music/bg1.mp3"),
     preload("res://assets/audio/music/bg2.mp3"),
-    preload("res://assets/audio/music/bg3.mp3")
+    preload("res://assets/audio/music/bg3.mp3"),
+    preload("res://assets/audio/music/bg4.mp3"),
+    preload("res://assets/audio/music/bg5.mp3"),
+    
 ]
 
 func _ready() -> void:
