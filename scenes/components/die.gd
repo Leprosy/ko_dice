@@ -98,7 +98,7 @@ func _on_sleeping_state_changed() -> void:
             print("Die: stopped ", self)
             emit_signal("die_stopped")
 
-func _on_input_event(_camera: Node, event: InputEvent) -> void:
+func _on_input_event(_camera: Node, event: InputEvent, _a, _b, _c) -> void:
     if event is InputEventMouseButton and event.pressed:
         self.clicks += 1
         $ClickTimer.start()
