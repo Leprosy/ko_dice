@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7oqnsxnri8yp"]
+[gd_scene load_steps=5 format=3 uid="uid://b7oqnsxnri8yp"]
 
 [ext_resource type="Script" uid="uid://1rsjr4tcpn5w" path="res://scenes/screens/round_win.gd" id="1_0dscd"]
+[ext_resource type="Texture2D" uid="uid://cohie8pnbmfbk" path="res://assets/textures/win.png" id="2_cdhtf"]
 [ext_resource type="AudioStream" uid="uid://bddbnca2odlsq" path="res://assets/audio/sfx/claps1.mp3" id="4_0dscd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p28mv"]
+texture = ExtResource("2_cdhtf")
 
 [node name="RoundWin" type="Node"]
 script = ExtResource("1_0dscd")
@@ -15,7 +19,8 @@ offset_bottom = 40.0
 [node name="Panel" type="Panel" parent="Control"]
 layout_mode = 0
 offset_right = 384.0
-offset_bottom = 736.0
+offset_bottom = 740.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_p28mv")
 
 [node name="Title" type="Label" parent="Control/Panel"]
 layout_mode = 0

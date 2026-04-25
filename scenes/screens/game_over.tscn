@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpj0jr7poxynu"]
+[gd_scene load_steps=5 format=3 uid="uid://dpj0jr7poxynu"]
 
 [ext_resource type="Script" uid="uid://s2y76qsv8tbp" path="res://scenes/screens/game_over.gd" id="1_tbwuq"]
+[ext_resource type="Texture2D" uid="uid://c8djicayt6ttm" path="res://assets/textures/death.png" id="2_7xe70"]
 [ext_resource type="AudioStream" uid="uid://chde2yjjvvcis" path="res://assets/audio/sfx/dead.mp3" id="2_wqhvx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ify0j"]
+texture = ExtResource("2_7xe70")
 
 [node name="GameOver" type="Node"]
 script = ExtResource("1_tbwuq")
@@ -15,7 +19,8 @@ offset_bottom = 40.0
 [node name="Panel" type="Panel" parent="Control"]
 layout_mode = 0
 offset_right = 384.0
-offset_bottom = 736.0
+offset_bottom = 740.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ify0j")
 
 [node name="Title" type="Label" parent="Control/Panel"]
 layout_mode = 0
