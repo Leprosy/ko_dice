@@ -2,6 +2,8 @@ class_name Perk
 
 extends Node
 
+signal perk_clicked
+
 var perk_name: String
 var description: String
 var dice = []
@@ -93,8 +95,6 @@ func set_pos(x, y):
     $Panel.position.x = x
     $Panel.position.y = y
 
-func _on_panel__perk_card_gui_input(event: InputEvent) -> void:
-    if event is InputEventMouseButton and not event.is_pressed():
-        if "on_perk_clicked" in self.get_parent():
-            self.get_parent().on_perk_clicked(self)
-        print("Fuck you, this is the control panel")
+func _on_panel_gui_input(event: InputEvent) -> void:
+    if event is InputEventMouseButton and event.pressed:
+        emit_signal("perk_clicked")
