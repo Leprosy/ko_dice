@@ -1,3 +1,4 @@
+Backlog:
 - First of Last die will be the played die index or the state, absolute, array index?
 - Check value before flip dice to set which axis will be used?
 - Check nudge not sending the stopped signal
@@ -7,7 +8,6 @@
 - Name of the hand and perk in yellow
 - Improve die selection indicator (border? another color?)
 - Die perk "Perk" should be adjusted if the die is on bottom too
-- Animation for Perk selection
 
 Palette:
 pur 7209b7
@@ -15,3 +15,9 @@ red e63462
 yel f5b700
 blu 006cc3
 grn 4d8b31
+
+- Tickets:
+    - Perk redesign, like cards, vertical, fan display, show card on perk activation
+      show card icon on Options panel
+    - Keep track of number of played hands, create a related perk, display data on
+      Options panel, stat tab
