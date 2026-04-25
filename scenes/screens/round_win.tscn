@@ -51,4 +51,6 @@ text = "Or skip to Next Round"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_0dscd")
 
+[node name="Perks" type="Node" parent="."]
+
 [connection signal="pressed" from="Control/Panel/Button" to="." method="_on_button_pressed"]
