@@ -40,6 +40,17 @@ offset_right = 299.0
 offset_bottom = 176.0
 text = "Choose a Perk:"
 
+[node name="Help" type="Label" parent="Control/Panel"]
+visible = false
+layout_mode = 0
+offset_left = 40.0
+offset_top = 176.0
+offset_right = 344.0
+offset_bottom = 208.0
+theme_type_variation = &"MiniLabel"
+text = "(click again to select)"
+horizontal_alignment = 1
+
 [node name="Button" type="Button" parent="Control/Panel"]
 layout_mode = 0
 offset_left = 32.0
