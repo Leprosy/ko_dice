@@ -16,9 +16,11 @@ func _ready() -> void:
         var perk_instance = perk_scn.instantiate()
         $Perks.add_child(perk_instance)
         perk_instance.get_perk(perk_name)
-        perk_instance.set_pos(10 + HOR_FIX * i, 250)
+        var card = perk_instance.get_child(0)
+        card.position.x = 10 + HOR_FIX * i
+        card.position.y = 250
         perk_instance.perk_clicked.connect(on_perk_clicked.bind(perk_instance, i))
-        unselect_card(perk_instance.get_child(0))
+        unselect_card(card)
         i += 1
 
 func _on_button_pressed() -> void:
@@ -26,14 +28,17 @@ func _on_button_pressed() -> void:
 
 func on_perk_clicked(perk_clicked, index):
     $Control/Panel/Help.visible = true
-    for perk in $Perks.get_children():
-        unselect_card(perk.get_child(0))
     if selected_perk == index:
+        var anim = ($Perks.get_child(0).get_child(0).get_child(-1))
+        anim.play("Select")
+        await anim.animation_finished
         var state = get_tree().root.get_node("Main/State")
         var data = inst_to_dict(perk_clicked)
         state.perks.push_back(data)
         self.Main.set_active_scene("game")
     else:
+        for perk in $Perks.get_children():
+            unselect_card(perk.get_child(0))
         $Perks.move_child(perk_clicked, 0)
         select_card(perk_clicked.get_child(0))
         selected_perk = index
