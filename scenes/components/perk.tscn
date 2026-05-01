@@ -70,6 +70,7 @@ mouse_filter = 1
 theme_override_colors/font_color = Color(1, 0.67451, 0, 1)
 text = "Perk Name"
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Icon" type="Sprite2D" parent="Panel"]
 position = Vector2(84, 108)
