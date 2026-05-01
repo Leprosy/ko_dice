@@ -12,7 +12,6 @@ blu 006cc3
 grn 4d8b31
 
 - Tickets:
-    - Perk redesign, like cards, vertical, fan display, show card on perk activation
-      show card icon on Options panel
+    - Perk redesign show card icon on Options panel
     - Keep track of number of played hands, create a related perk, display data on
       Options panel, stat tab
