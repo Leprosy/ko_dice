@@ -98,3 +98,7 @@ func set_pos(x, y):
 func _on_panel_gui_input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.pressed:
         emit_signal("perk_clicked")
+
+func play_anim(name: String) -> void:
+    $Panel/AnimationPlayer.play(name)
+    await $Panel/AnimationPlayer.animation_finished

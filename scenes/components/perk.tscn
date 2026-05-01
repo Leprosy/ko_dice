@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c04n8nhvf1abb"]
+[gd_scene load_steps=15 format=3 uid="uid://c04n8nhvf1abb"]
 
 [ext_resource type="Script" uid="uid://bwnta8ofknb1o" path="res://scenes/components/perk.gd" id="1_t6y4v"]
 [ext_resource type="Texture2D" uid="uid://ii8t2lo3s3b" path="res://assets/textures/card.png" id="2_gtsmi"]
@@ -95,8 +95,37 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_854fc"]
+resource_name = "Flash"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_854fc"]
 _data = {
+&"Flash": SubResource("Animation_854fc"),
 &"RESET": SubResource("Animation_h7icp"),
 &"Select": SubResource("Animation_gtsmi")
 }

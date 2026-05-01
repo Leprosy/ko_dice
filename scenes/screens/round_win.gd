@@ -29,9 +29,7 @@ func _on_button_pressed() -> void:
 func on_perk_clicked(perk_clicked, index):
     $Control/Panel/Help.visible = true
     if selected_perk == index:
-        var anim = ($Perks.get_child(0).get_child(0).get_child(-1))
-        anim.play("Select")
-        await anim.animation_finished
+        await perk_clicked.play_anim("Select")
         var state = get_tree().root.get_node("Main/State")
         var data = inst_to_dict(perk_clicked)
         state.perks.push_back(data)
