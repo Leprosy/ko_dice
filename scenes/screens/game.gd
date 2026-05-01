@@ -82,13 +82,11 @@ func on_die_dblclick(die):
     
 func on_die_update():
     if self.is_playing_hand:
-        print('Implaying')
         return
-    for die in dice:
-        print(die.is_moving)
     var all_stopped = self.dice.all(func(die): return not die.is_moving)
-    print("All Stopped: ", all_stopped)
     state.is_busy = not all_stopped
+    if (all_stopped):
+        print("Game: Dice stopped")
     $GUI.update(state)    
 
 
@@ -125,16 +123,12 @@ func display_hand_results() -> void:
                 $SFX.play_sfx("flash")
                 plus += perk.dice_plus
                 await self.flash_perk(perk.perk_name)
-                #$GUI.display_flash("Perk", die_2d[0], die_2d[1] - 50, Color.CORNFLOWER_BLUE)
-                #await $GUI.display_flash(perk.perk_name, die_2d[0], die_2d[1])
                 await $GUI.adding_points(plus, 0, false)
                 await $GUI.display_flash("+%s" % perk.dice_plus, die_2d[0], die_2d[1], Color.DODGER_BLUE)
             if perk.dice_mult:
                 $SFX.play_sfx("flash")
                 mult += perk.dice_mult
                 await self.flash_perk(perk.perk_name)
-                #$GUI.display_flash("Perk", die_2d[0], die_2d[1] - 50, Color.CORNFLOWER_BLUE)
-                #await $GUI.display_flash(perk.perk_name, die_2d[0], die_2d[1])
                 await $GUI.adding_points(0, mult, false)
                 await $GUI.display_flash("+%sX" % perk.dice_mult, die_2d[0], die_2d[1], Color.ORANGE)
     
@@ -144,8 +138,6 @@ func display_hand_results() -> void:
             $SFX.play_sfx("info")
             plus += perk.plus
             await self.flash_perk(perk.perk_name)
-            #$GUI.display_flash("Perk", mid_x, mid_y, Color.CORNFLOWER_BLUE)
-            #await $GUI.display_info("%s" % perk.perk_name)
             await $GUI.adding_points(plus, 0, false)
             await $GUI.display_info("+%s" % perk.plus)
 
@@ -161,8 +153,6 @@ func display_hand_results() -> void:
             mult += perk.mult
             $SFX.play_sfx("info")
             await self.flash_perk(perk.perk_name)
-            #$GUI.display_flash("Perk", mid_x, mid_y, Color.CORNFLOWER_BLUE)
-            #await $GUI.display_info("%s" % perk.perk_name)
             await $GUI.adding_points(0, mult, false)
             $SFX.play_sfx("info")
             await $GUI.display_info("+%sX" % perk.mult, Color.ORANGE)
@@ -177,10 +167,10 @@ func display_hand_results() -> void:
             die.select()
     state.score += points
 
-func flash_perk(name: String) -> void:
+func flash_perk(perk_name: String) -> void:
     var prk = perk_scn.instantiate()
     self.add_child(prk)
-    prk.get_perk(name)
+    prk.get_perk(perk_name)
     prk.set_pos(100,200) # TODO: Improve positioning
     await prk.play_anim("Flash")
     prk.queue_free()

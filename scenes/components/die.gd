@@ -64,7 +64,6 @@ func lift() -> void:
     var tween = get_tree().create_tween().set_trans(Tween.TRANS_ELASTIC)
     tween.tween_property($".", "position", Vector3(self.position.x, self.position.y + 4, self.position.z), 0.2)
     tween.tween_property($".", "position", pos, 0.2)
-    tween.tween_callback(func (): self.emit_signal("die_stopped"))
     tween.play()
     await tween.finished
 
