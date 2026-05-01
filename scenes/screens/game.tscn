@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0lwltjorng8h"]
+[gd_scene load_steps=12 format=3 uid="uid://c0lwltjorng8h"]
 
 [ext_resource type="Script" uid="uid://dutuxxxurlihg" path="res://scenes/screens/game.gd" id="1_iwlfa"]
 [ext_resource type="Texture2D" uid="uid://d17ha6nlf64yq" path="res://assets/textures/table.png" id="2_4ji0l"]
 [ext_resource type="PackedScene" uid="uid://b2v3gglcnp6r5" path="res://scenes/components/sfx.tscn" id="3_mu8e5"]
 [ext_resource type="PackedScene" uid="uid://b6pfwckjrtlrv" path="res://scenes/components/gui.tscn" id="4_ln6eb"]
-[ext_resource type="PackedScene" uid="uid://cqiwpggi5mjdg" path="res://scenes/helpers/signals.tscn" id="5_ln6eb"]
 [ext_resource type="PackedScene" uid="uid://diwchjt4yfbus" path="res://scenes/components/control_panel.tscn" id="6_4ji0l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sgp6g"]
@@ -83,8 +82,6 @@ one_shot = true
 
 [node name="GUI" parent="." instance=ExtResource("4_ln6eb")]
 offset_bottom = 176.0
-
-[node name="Signals" parent="." instance=ExtResource("5_ln6eb")]
 
 [node name="ControlPanel" parent="." instance=ExtResource("6_4ji0l")]
 visible = false

@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-signal die_stopped
+signal die_update
 signal die_clicked
 signal die_dblclicked
 
@@ -10,6 +10,7 @@ var selected := false
 var cant_flip := false
 var clicks := 0
 var id: int
+var is_moving := false
 
 func _ready() -> void:
     var new_res = get_children()[1].mesh.duplicate(true)
@@ -92,11 +93,17 @@ func needs_reroll():
 
 func _on_sleeping_state_changed() -> void:
     if round(self.linear_velocity.length()) == 0.0:
+        self.is_moving = false
         if self.needs_reroll():
+            print("Die: needs reroll " ,self.id)
             self.nudge()
         else:
-            print("Die: stopped ", self)
-            emit_signal("die_stopped")
+            print("Die: stopped ", self.id)
+    else:
+        self.is_moving = true
+        print("Die: Rolling ", self.id)
+
+    emit_signal("die_update")
 
 func _on_input_event(_camera: Node, event: InputEvent, _a, _b, _c) -> void:
     if event is InputEventMouseButton and event.pressed:

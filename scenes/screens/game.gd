@@ -3,6 +3,7 @@ extends Screen
 var die_scene = preload("res://scenes/components/die.tscn")
 var dice = []
 var state: State
+var is_playing_hand := false
 const mid_x = 192
 const mid_y = 400
 
@@ -18,6 +19,7 @@ func _ready() -> void:
         var new_die = die_scene.instantiate()
         new_die.connect("die_clicked", self.on_die_click)
         new_die.connect("die_dblclicked", self.on_die_dblclick)
+        new_die.connect("die_update", self.on_die_update)
         new_die.id = i
         new_die.position.x += rng.randf_range(-15, 15)
         new_die.position.z += rng.randf_range(-10, 10)
@@ -39,23 +41,16 @@ func do_roll() -> void:
     state.is_busy = true
     state.rolls = state.rolls - 1
     $GUI.update(state)
-    print("Game: Rolling dice")
+    print("\nGame: Rolling dice")
     $SFX.play_sfx("roll")
-    var signals = []
     for die in dice:
         if not die.selected:
             die.roll()
-            signals.push_back(die.die_stopped)
         else:
-            die.cant_flip = true # TODO: ???
-    $Signals.sumbit(signals)
-    await $Signals.completed # TODO: Check all die are stopped
-
-    print("Game: Rolling complete")
-    state.is_busy = false
-    $GUI.update(state)
+            die.cant_flip = true
 
 func do_play_hand() -> void:
+    self.is_playing_hand = true
     for die in dice:
         die.cant_flip = false
     state.is_busy = true
@@ -66,6 +61,7 @@ func do_play_hand() -> void:
     state.is_busy = false
     $GUI.update(state)
     self.check_round_results()
+    self.is_playing_hand = false
     
 func do_toggle_control_panel() -> void:
     $ControlPanel.visible = not $ControlPanel.visible
@@ -82,6 +78,18 @@ func on_die_dblclick(die):
         return
     $SFX.play_sfx("flip")
     die.flip()
+    
+func on_die_update():
+    if self.is_playing_hand:
+        print('Implaying')
+        return
+    for die in dice:
+        print(die.is_moving)
+    var all_stopped = self.dice.all(func(die): return not die.is_moving)
+    print("All Stopped: ", all_stopped)
+    state.is_busy = not all_stopped
+    $GUI.update(state)    
+
 
 
 # Big one here

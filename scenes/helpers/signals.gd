@@ -6,13 +6,15 @@ signal completed
 
 var total := 0
 
-func sumbit(signals: Array) -> void:
-    self.total = len(signals)
-    for sig: Signal in signals:
-        if not sig.is_connected(self._task_completed):
-            sig.connect(self._task_completed)
+func sumbit(sig: Signal) -> void:
+    self.total += 1
+    print("Signal: one added, total=", self.total, " ", sig.get_object_id())
+    if not sig.is_connected(self._task_completed):
+        sig.connect(self._task_completed)
 
 func _task_completed() -> void:
     self.total = self.total - 1
+    print("Signal: one completed, total=", self.total)
     if self.total == 0:
+        print("Signals: queue completed")
         emit_signal("completed")

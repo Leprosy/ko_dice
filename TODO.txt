@@ -1,13 +1,8 @@
 Backlog:
-- First of Last die will be the played die index or the state, absolute, array index?
-- Check value before flip dice to set which axis will be used?
-- Check nudge not sending the stopped signal
 - Implement a Keep an Ace mechanic: 
     hold a die for 2 seconds turns it into an ace and roll the rest,
     playing the hand automatically. Only works after at least one roll.
-- Name of the hand and perk in yellow
 - Improve die selection indicator (border? another color?)
-- Die perk "Perk" should be adjusted if the die is on bottom too
 
 Palette:
 pur 7209b7
