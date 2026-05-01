@@ -1,6 +1,7 @@
 extends Screen
 
 var die_scene = preload("res://scenes/components/die.tscn")
+var perk_scn = preload("res://scenes/components/perk.tscn")
 var dice = []
 var state: State
 var is_playing_hand := false
@@ -123,15 +124,17 @@ func display_hand_results() -> void:
             if perk.dice_plus:
                 $SFX.play_sfx("flash")
                 plus += perk.dice_plus
-                $GUI.display_flash("Perk", die_2d[0], die_2d[1] - 50, Color.CORNFLOWER_BLUE)
-                await $GUI.display_flash(perk.perk_name, die_2d[0], die_2d[1])
+                await self.flash_perk(perk.perk_name)
+                #$GUI.display_flash("Perk", die_2d[0], die_2d[1] - 50, Color.CORNFLOWER_BLUE)
+                #await $GUI.display_flash(perk.perk_name, die_2d[0], die_2d[1])
                 await $GUI.adding_points(plus, 0, false)
                 await $GUI.display_flash("+%s" % perk.dice_plus, die_2d[0], die_2d[1], Color.DODGER_BLUE)
             if perk.dice_mult:
                 $SFX.play_sfx("flash")
                 mult += perk.dice_mult
-                $GUI.display_flash("Perk", die_2d[0], die_2d[1] - 50, Color.CORNFLOWER_BLUE)
-                await $GUI.display_flash(perk.perk_name, die_2d[0], die_2d[1])
+                await self.flash_perk(perk.perk_name)
+                #$GUI.display_flash("Perk", die_2d[0], die_2d[1] - 50, Color.CORNFLOWER_BLUE)
+                #await $GUI.display_flash(perk.perk_name, die_2d[0], die_2d[1])
                 await $GUI.adding_points(0, mult, false)
                 await $GUI.display_flash("+%sX" % perk.dice_mult, die_2d[0], die_2d[1], Color.ORANGE)
     
@@ -140,8 +143,9 @@ func display_hand_results() -> void:
         if perk.plus:
             $SFX.play_sfx("info")
             plus += perk.plus
-            $GUI.display_flash("Perk", mid_x, mid_y, Color.CORNFLOWER_BLUE)
-            await $GUI.display_info("%s" % perk.perk_name)
+            await self.flash_perk(perk.perk_name)
+            #$GUI.display_flash("Perk", mid_x, mid_y, Color.CORNFLOWER_BLUE)
+            #await $GUI.display_info("%s" % perk.perk_name)
             await $GUI.adding_points(plus, 0, false)
             await $GUI.display_info("+%s" % perk.plus)
 
@@ -149,18 +153,19 @@ func display_hand_results() -> void:
     mult += data[0].mult
     $SFX.play_sfx("info")
     await $GUI.adding_points(0, mult, false)
-    await $GUI.display_info("+ %sX" % data[0].mult, Color.ORANGE)
+    await $GUI.display_info("+%sX" % data[0].mult, Color.ORANGE)
 
     # Extra perk mult
     for perk in perks:
         if perk.mult:
             mult += perk.mult
             $SFX.play_sfx("info")
-            $GUI.display_flash("Perk", mid_x, mid_y, Color.CORNFLOWER_BLUE)
-            await $GUI.display_info("%s" % perk.perk_name)
+            await self.flash_perk(perk.perk_name)
+            #$GUI.display_flash("Perk", mid_x, mid_y, Color.CORNFLOWER_BLUE)
+            #await $GUI.display_info("%s" % perk.perk_name)
             await $GUI.adding_points(0, mult, false)
             $SFX.play_sfx("info")
-            await $GUI.display_info("+ %sX" % perk.mult)
+            await $GUI.display_info("+%sX" % perk.mult, Color.ORANGE)
 
     # Total
     var points = plus * mult
@@ -171,3 +176,11 @@ func display_hand_results() -> void:
         if die.selected:
             die.select()
     state.score += points
+
+func flash_perk(name: String) -> void:
+    var prk = perk_scn.instantiate()
+    self.add_child(prk)
+    prk.get_perk(name)
+    prk.set_pos(100,200) # TODO: Improve positioning
+    await prk.play_anim("Flash")
+    prk.queue_free()
