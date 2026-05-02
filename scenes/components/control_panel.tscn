@@ -4,7 +4,11 @@
 [ext_resource type="Script" uid="uid://c11j4se4yiagv" path="res://scenes/components/control_panel.gd" id="2_xbdeo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7k5j"]
-bg_color = Color(0, 0, 0, 0.709804)
+bg_color = Color(0, 0, 0, 0.819608)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="ControlPanel" type="Control"]
 layout_mode = 3
@@ -26,9 +30,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_m7k5j")
 [node name="Continue" type="Button" parent="Panel"]
 layout_mode = 0
 offset_left = 88.0
-offset_top = 64.0
+offset_top = 80.0
 offset_right = 240.0
-offset_bottom = 112.0
+offset_bottom = 128.0
 text = "Continue"
 
 [node name="Quit" type="Button" parent="Panel"]
@@ -42,9 +46,9 @@ text = "Quit Game"
 [node name="Label1" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 112.0
-offset_top = 8.0
+offset_top = 32.0
 offset_right = 221.0
-offset_bottom = 38.0
+offset_bottom = 64.0
 text = "Options"
 
 [node name="Label2" type="Label" parent="Panel"]
