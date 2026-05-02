@@ -103,6 +103,7 @@ func display_hand_results() -> void:
     $SFX.play_sfx("info")
     await $GUI.adding_points(plus, 0, false)
     await $GUI.display_info(data[0].name)
+    state.increase_hand(data[0].name)
 
     # dice bonus
     for i in data[1]:

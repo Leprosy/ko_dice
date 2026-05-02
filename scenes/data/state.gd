@@ -11,14 +11,14 @@ var perks: Array
 var is_busy: bool
 
 var hand_data = [
-    {"name": "Knockout!", "base": 48, "mult": 7 },
-    {"name": "4 of\na kind", "base": 24, "mult": 7 },   
-    {"name": "Full\nhouse", "base": 16, "mult": 4 },   
-    {"name": "Three of\na kind", "base": 12, "mult": 3 },   
-    {"name": "Two\npairs", "base": 8, "mult": 2 },   
-    {"name": "Pair", "base": 4, "mult": 2 },
-    {"name": "Straight", "base": 12, "mult": 4 },
-    {"name": "???", "base": 8, "mult": 3 }, 
+    {"name": "Knockout!", "base": 48, "mult": 7, "played": 0 },
+    {"name": "4 of\na kind", "base": 24, "mult": 7, "played": 0 },   
+    {"name": "Full\nhouse", "base": 16, "mult": 4, "played": 0 },   
+    {"name": "Three of\na kind", "base": 12, "mult": 3, "played": 0 },   
+    {"name": "Two\npairs", "base": 8, "mult": 2, "played": 0 },
+    {"name": "Pair", "base": 4, "mult": 2, "played": 0 },
+    {"name": "Straight", "base": 12, "mult": 4, "played": 0 },
+    {"name": "???", "base": 8, "mult": 3, "played": 0 },
 ]
 
 func _init():
@@ -61,9 +61,16 @@ func reset_state(new_level = false) -> void:
     else:
         perks = []
         round = 0
+        for hand in hand_data:
+            hand.played = 0
     score = 0
     is_busy = false
     print("State: reset level %s" % round)
+
+func increase_hand(name: String):
+    for hand in self.hand_data:
+        if hand.name == name:
+            hand.played += 1
 
 func calculate_roll(dice: Array):
     print("State: Got dice", dice)
