@@ -99,6 +99,6 @@ func _on_panel_gui_input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.pressed:
         emit_signal("perk_clicked")
 
-func play_anim(perk_name: String) -> void:
-    $Panel/AnimationPlayer.play(perk_name)
+func play_anim(anim_name: String) -> void:
+    $Panel/AnimationPlayer.play(anim_name)
     await $Panel/AnimationPlayer.animation_finished

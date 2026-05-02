@@ -67,9 +67,9 @@ func reset_state(new_level = false) -> void:
     is_busy = false
     print("State: reset level %s" % round)
 
-func increase_hand(name: String):
+func increase_hand(hand_name: String):
     for hand in self.hand_data:
-        if hand.name == name:
+        if hand.name == hand_name:
             hand.played += 1
 
 func calculate_roll(dice: Array):
