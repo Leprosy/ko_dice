@@ -5,6 +5,7 @@ var perk_scn = preload("res://scenes/components/perk.tscn")
 var dice = []
 var state: State
 var is_playing_hand := false
+var is_flipping := false
 const mid_x = 192
 const mid_y = 400
 
@@ -77,11 +78,18 @@ func on_die_dblclick(die):
     if not state.can_flip() or die.cant_flip:
         $SFX.play_sfx("error")
         return
+    state.is_busy = true
+    self.is_flipping = true
+    $GUI.update(state)
     $SFX.play_sfx("flip")
-    die.flip()
-    
+    await die.flip()
+    state.is_busy = false
+    self.is_flipping = false
+    $GUI.update(state)
+
+
 func on_die_update():
-    if self.is_playing_hand:
+    if self.is_playing_hand or self.is_flipping:
         return
     var all_stopped = self.dice.all(func(die): return not die.is_moving)
     state.is_busy = not all_stopped

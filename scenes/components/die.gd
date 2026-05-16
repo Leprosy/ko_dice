@@ -78,8 +78,8 @@ func flip() -> void:
     tween.tween_property($".", "position", Vector3(self.position.x, self.position.y + 4, self.position.z), 0.25)
     tween.tween_property($".", "rotation", rot, 0.5)
     tween.tween_property($".", "position", pos, 0.25)
-    tween.tween_callback(func (): self.emit_signal("die_stopped"))
     tween.play()
+    await tween.finished
 
 func roll() -> void:
     apply_impulse(get_random_force(), point)
