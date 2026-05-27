@@ -118,8 +118,6 @@ offset_right = 352.0
 offset_bottom = 704.0
 pivot_offset = Vector2(160, 96)
 theme_override_constants/line_spacing = -5
-text = "Three of
-a Kind"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_ch7j7")
