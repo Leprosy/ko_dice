@@ -115,7 +115,7 @@ func display_hand_results() -> void:
 
     # dice bonus
     for i in data[1]:
-        await dice[i].lift()
+        dice[i].lift()
         var die_2d = get_viewport().get_camera_3d().unproject_position(dice[i].position)
         var value = dice[i].get_value()
         if value == 1:
