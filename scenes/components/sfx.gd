@@ -7,6 +7,7 @@ var sfxs := {
     "flash": preload("res://assets/audio/sfx/flash.mp3"),
     "info": preload("res://assets/audio/sfx/info.mp3"),
     "end_info": preload("res://assets/audio/sfx/end_info.mp3"),
+    "knockout": preload("res://assets/audio/sfx/knockout.mp3")
 }
 
 func play_sfx(key: String) -> void:
