@@ -242,9 +242,9 @@ visible = false
 modulate = Color(1, 1, 0.25098, 1)
 layout_mode = 2
 anchors_preset = 0
-offset_top = 184.0
+offset_top = 168.0
 offset_right = 384.0
-offset_bottom = 232.0
+offset_bottom = 216.0
 pivot_offset = Vector2(192, 24)
 
 [node name="Add" type="Label" parent="Panel/AddScore"]
