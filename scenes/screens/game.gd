@@ -132,12 +132,14 @@ func display_hand_results() -> void:
                 $SFX.play_sfx("flash")
                 plus += perk.dice_plus
                 await self.flash_perk(perk.perk_name)
+                $SFX.play_sfx("flash")
                 await $GUI.adding_points(plus, 0, false)
                 await $GUI.display_flash("+%s" % perk.dice_plus, die_2d[0], die_2d[1], Color.DODGER_BLUE)
             if perk.dice_mult:
                 $SFX.play_sfx("flash")
                 mult += perk.dice_mult
                 await self.flash_perk(perk.perk_name)
+                $SFX.play_sfx("flash")
                 await $GUI.adding_points(0, mult, false)
                 await $GUI.display_flash("+%sX" % perk.dice_mult, die_2d[0], die_2d[1], Color.ORANGE)
     
