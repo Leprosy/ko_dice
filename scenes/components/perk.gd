@@ -88,7 +88,8 @@ func get_perk(pname) -> void:
     if not self.icon:
         self.icon = "default"
     $Name.text = self.perk_name
-    $Description.text = self.description
+    if $Description:
+        $Description.text = self.description
     $Icon.texture = perk_icons[self.icon]
 
 func set_pos(x, y):

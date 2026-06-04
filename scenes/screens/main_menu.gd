@@ -5,7 +5,7 @@ func _ready() -> void:
     $Label/AnimationPlayer.play('pulse')
 
 func on_new_run_press() -> void:
-    self.Main.set_active_scene("game")
+    self.Main.set_active_scene("round_win")
 
 func on_credit_press() -> void:
     self.Main.set_active_scene("credits")

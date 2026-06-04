@@ -1,9 +1,9 @@
 extends Control
 
-const PERK_LIST := "TabContainer/Options/ScrollContainer/VBoxContainer"
+const PERK_LIST := "TabContainer/Options/ScrollContainer/PerkGrid"
 const HAND_TREE := "TabContainer/Status/HandTree"
 
-var perk_scene = preload("res://scenes/components/perk.tscn")
+var perk_scene = preload("res://scenes/components/mini_perk.tscn")
 
 func _on_visibility_changed() -> void:
     if not self.visible:
@@ -11,10 +11,11 @@ func _on_visibility_changed() -> void:
 
     var list = get_node(PERK_LIST)
     for child in list.get_children():
-        child.queue_free()
+        child.free()
     var state = get_tree().root.get_node("Main/State")
     for perk_data in state.perks:
         var item = perk_scene.instantiate()
+        item.size_flags_horizontal = Control.SIZE_EXPAND_FILL
         list.add_child(item)
         item.get_perk(perk_data.perk_name)
 
