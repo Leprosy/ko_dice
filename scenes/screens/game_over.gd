@@ -1,6 +1,8 @@
 extends Screen
 
 func _ready() -> void:
+    var state = $"../../State"
+    state.reset_state(false)
     self.Main.get_node("Music").stop()
     $AudioStreamPlayer.play()
 
