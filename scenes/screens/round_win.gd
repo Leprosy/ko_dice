@@ -16,11 +16,10 @@ func _ready() -> void:
         var perk_instance = perk_scn.instantiate()
         $Perks.add_child(perk_instance)
         perk_instance.get_perk(perk_name)
-        var card = perk_instance.get_child(0)
-        card.position.x = 10 + HOR_FIX * i
-        card.position.y = 250
+        perk_instance.position.x = 10 + HOR_FIX * i
+        perk_instance.position.y = 250
         perk_instance.perk_clicked.connect(on_perk_clicked.bind(perk_instance, i))
-        unselect_card(card)
+        unselect_card(perk_instance)
         i += 1
 
 func _on_button_pressed() -> void:
@@ -36,9 +35,9 @@ func on_perk_clicked(perk_clicked, index):
         self.Main.set_active_scene("game")
     else:
         for perk in $Perks.get_children():
-            unselect_card(perk.get_child(0))
+            unselect_card(perk)
         $Perks.move_child(perk_clicked, 0)
-        select_card(perk_clicked.get_child(0))
+        select_card(perk_clicked)
         selected_perk = index
 
 func select_card(card):

@@ -1,23 +1,36 @@
 extends Control
 
-var perk = preload("res://scenes/components/perk.tscn")
+const PERK_LIST := "TabContainer/Options/ScrollContainer/VBoxContainer"
+const HAND_TREE := "TabContainer/Status/HandTree"
+
+var perk_scene = preload("res://scenes/components/perk.tscn")
 
 func _on_visibility_changed() -> void:
     if not self.visible:
         return
 
-    for child in $TabContainer/Options/ScrollContainer/VBoxContainer.get_children():
+    var list = get_node(PERK_LIST)
+    for child in list.get_children():
         child.queue_free()
     var state = get_tree().root.get_node("Main/State")
-    for perk_item in state.perks:
-        var item = Button.new()
-        item.text = perk_item.perk_name
-        $Panel/ScrollContainer/VBoxContainer.add_child(item)
+    for perk_data in state.perks:
+        var item = perk_scene.instantiate()
+        list.add_child(item)
+        item.get_perk(perk_data.perk_name)
 
-    var hands = ""
+    var tree = get_node(HAND_TREE)
+    tree.clear()
+    tree.set_column_title(0, "Hand")
+    tree.set_column_title(1, "Played")
+    tree.set_column_title(2, "Lvl")
     for hand in state.hand_data:
-        hands += "\n%s   %d" % [hand.name.replace("\n", " "), hand.played]
-    $TabContainer/Status/Label2.text = hands
+        var item = tree.create_item()
+        item.set_text(0, hand.name.replace("\n", " "))
+        item.set_text(1, str(hand.played))
+        item.set_text(2, str(hand.level))
+        item.set_text_alignment(0, HORIZONTAL_ALIGNMENT_LEFT)
+        item.set_text_alignment(1, HORIZONTAL_ALIGNMENT_CENTER)
+        item.set_text_alignment(2, HORIZONTAL_ALIGNMENT_CENTER)
 
 func _on_continue_pressed() -> void:
     self.visible = false

@@ -1,6 +1,6 @@
 class_name Perk
 
-extends Node
+extends Panel
 
 signal perk_clicked
 
@@ -87,18 +87,18 @@ func get_perk(pname) -> void:
         self[key] = perk[key]
     if not self.icon:
         self.icon = "default"
-    $Panel/Name.text = self.perk_name
-    $Panel/Description.text = self.description
-    $Panel/Icon.texture = perk_icons[self.icon]
+    $Name.text = self.perk_name
+    $Description.text = self.description
+    $Icon.texture = perk_icons[self.icon]
 
 func set_pos(x, y):
-    $Panel.position.x = x
-    $Panel.position.y = y
+    position.x = x
+    position.y = y
 
 func _on_panel_gui_input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.pressed:
         emit_signal("perk_clicked")
 
 func play_anim(anim_name: String) -> void:
-    $Panel/AnimationPlayer.play(anim_name)
-    await $Panel/AnimationPlayer.animation_finished
+    $AnimationPlayer.play(anim_name)
+    await $AnimationPlayer.animation_finished

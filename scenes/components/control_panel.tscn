@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://diwchjt4yfbus"]
+[gd_scene load_steps=5 format=3 uid="uid://diwchjt4yfbus"]
 
 [ext_resource type="Theme" uid="uid://de5o7pp6f0xwq" path="res://resources/UIBase.tres" id="1_m7k5j"]
 [ext_resource type="Script" uid="uid://c11j4se4yiagv" path="res://scenes/components/control_panel.gd" id="2_xbdeo"]
@@ -9,6 +9,9 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbdeo"]
+bg_color = Color(0, 0, 0, 0.819608)
 
 [node name="ControlPanel" type="Control"]
 layout_mode = 3
@@ -72,13 +75,17 @@ offset_left = 16.0
 offset_top = 304.0
 offset_right = 304.0
 offset_bottom = 416.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Options/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Status" type="Panel" parent="TabContainer"]
 visible = false
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xbdeo")
 metadata/_tab_index = 1
 
 [node name="Label" type="Label" parent="TabContainer/Status"]
@@ -90,12 +97,18 @@ offset_bottom = 64.0
 text = "Played Hands"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="TabContainer/Status"]
+[node name="HandTree" type="Tree" parent="TabContainer/Status"]
 layout_mode = 0
-offset_left = 8.0
+offset_left = 16.0
 offset_top = 88.0
-offset_right = 312.0
+offset_right = 304.0
 offset_bottom = 408.0
+theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/title_button_font_size = 32
+columns = 3
+column_titles_visible = true
+allow_search = false
+hide_root = true
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="TabContainer/Options/Continue" to="." method="_on_continue_pressed"]
