@@ -1,7 +1,7 @@
 keys,en,es
 Knock Out!,Knock Out!,Knock Out!
 New Run,New Run,Nueva partida
-Credits,Credits,Créditos
+Credits,Credits,Creditos
 Help,Help,Ayuda
 Clear saved data,Clear saved data,Borrar datos guardados
 Back to Menu,Back to Menu,Volver al menú
@@ -17,23 +17,23 @@ Clear!","Ronda
 superada!"
 Choose a Perk:,Choose a Perk:,Elige una ventaja:
 (click again to select),(click again to select),(clic de nuevo para elegir)
-Or skip to Next Round,Or skip to Next Round,O saltar a la siguiente ronda
+Or skip to Next Round,Or skip to Next Round,Saltar a la siguiente ronda
 "GAME
 OVER!","GAME
 OVER!","FIN
 DEL JUEGO"
-NEW RECORD!,NEW RECORD!,¡NUEVO RÉCORD!
+NEW RECORD!,NEW RECORD!,¡NUEVO RECORD!
 "You reached round %s",You reached round %s,Llegaste a la ronda %s
 "Go to
 Main Menu","Go to
 Main Menu","Ir al
-menú principal"
+menu principal"
 Round,Round,Ronda
-Rolls,Rolls,Tiradas
+Rolls,Rolls,Tiros
 Hands,Hands,Manos
-Score,Score,Puntuación
+Score,Score,Puntos
 Roll,Roll,Tirar
-Play Hand,Play Hand,Jugar mano
+Play Hand,Play Hand,Jugar Mano
 Saved data cleared,Saved data cleared,Datos guardados borrados
 Round %s,Round %s,Ronda %s
 "Total
@@ -41,26 +41,26 @@ Round %s,Round %s,Ronda %s
 %s","Total
 %s"
 Hand,Hand,Mano
-Played,Played,Jugadas
+Played,#,#
 Lvl,Lvl,Nvl
 Language,Language,Idioma
 English,English,English
 Español,Español,Español
 HAND_KNOCKOUT,Knockout!,¡Knockout!
 "HAND_FOUR_OF_A_KIND","4 of
-a kind","4
-iguales"
+a Kind","4
+Iguales"
 "HAND_FULL_HOUSE","Full
-house","Casa
-llena"
+House","Full
+House"
 "HAND_THREE_OF_A_KIND","Three of
-a kind","Tres
-iguales"
+a Kind","Tres
+Iguales"
 "HAND_TWO_PAIRS","Two
-pairs","Dos
-pares"
+Pairs","Dos
+Pares"
 HAND_PAIR,Pair,Par
-HAND_STRAIGHT,Straight,Escalera
+HAND_STRAIGHT,Straight,Escala
 HAND_HIGH_CARD,???,???
 PERK_PLUS_NAME,Plus,Plus
 PERK_PLUS_DESC,Adds 10 points to the hand played,Suma 10 puntos a la mano jugada
