@@ -1,0 +1,9 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# misc ignores
+.DS_Store
+.gitattributes
+.editorconfig
+settings.json
