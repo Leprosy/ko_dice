@@ -15,4 +15,4 @@ func on_help_pressed() -> void:
 
 func on_clear_saved_data_press() -> void:
     self.Main.clear_saved_data()
-    $Toast.show_message("Saved data cleared")
+    $Toast.show_message(tr("Saved data cleared"))

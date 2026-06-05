@@ -33,6 +33,11 @@ version_control/autoload_on_startup=true
 
 theme/custom="uid://de5o7pp6f0xwq"
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://locale/translations.en.translation", "res://locale/translations.es.translation")
+locale/fallback="en"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

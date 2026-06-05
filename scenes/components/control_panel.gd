@@ -5,6 +5,10 @@ const HAND_TREE := "TabContainer/Status/HandTree"
 
 var perk_scene = preload("res://scenes/components/mini_perk.tscn")
 
+func refresh_locale() -> void:
+    if visible:
+        _on_visibility_changed()
+
 func _on_visibility_changed() -> void:
     if not self.visible:
         return
@@ -17,16 +21,16 @@ func _on_visibility_changed() -> void:
         var item = perk_scene.instantiate()
         item.size_flags_horizontal = Control.SIZE_EXPAND_FILL
         list.add_child(item)
-        item.get_perk(perk_data.perk_name)
+        item.get_perk(perk_data.id)
 
     var tree = get_node(HAND_TREE)
     tree.clear()
-    tree.set_column_title(0, "Hand")
-    tree.set_column_title(1, "Played")
-    tree.set_column_title(2, "Lvl")
+    tree.set_column_title(0, tr("Hand"))
+    tree.set_column_title(1, tr("Played"))
+    tree.set_column_title(2, tr("Lvl"))
     for hand in state.hand_data:
         var item = tree.create_item()
-        item.set_text(0, hand.name.replace("\n", " "))
+        item.set_text(0, tr(hand.name_key).replace("\n", " "))
         item.set_text(1, str(hand.played))
         item.set_text(2, str(hand.level))
         item.set_text_alignment(0, HORIZONTAL_ALIGNMENT_LEFT)

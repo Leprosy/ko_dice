@@ -10,8 +10,7 @@ offset_left = 64.0
 offset_top = 640.0
 offset_right = 315.0
 offset_bottom = 680.0
-text = "Back to Menu
-"
+text = "Back to Menu"
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0

@@ -13,7 +13,7 @@ func _ready() -> void:
     else:
         $Control/Panel/RecordLabel.visible = false
 
-    $Control/Panel/Label.text = "You reached round %s" % state.round
+    $Control/Panel/Label.text = tr("You reached round %s") % state.round
     $AudioStreamPlayer.play()
     state.reset_state(false)
 

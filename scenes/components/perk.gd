@@ -4,7 +4,7 @@ extends Panel
 
 signal perk_clicked
 
-var perk_name: String
+var id: String
 var description: String
 var dice = []
 var dice_plus: int
@@ -25,72 +25,83 @@ var perk_icons = {
 
 static var perks = [
     {
-        "perk_name": "Plus",
-        "description": "Adds 10 points to the hand played",
+        "id": "plus",
         "plus": 10,
         "icon": "plus"
     },
     {
-        "perk_name": "Mult",
-        "description": "Adds 4 mult to the hand played",
+        "id": "mult",
         "mult": 4,
         "icon": "rem"
     },
     {
-        "perk_name": "First",
-        "description": "First die has 5 extra points",
+        "id": "first",
         "dice": [0],
         "dice_plus": 5,
         "icon": "undo"
     },
     {
-        "perk_name": "Two Pair Plus",
-        "description": "Adds 15 points if hand is 2 Pair",
+        "id": "two_pair_plus",
         "plus": 15,
-        "hand_type": "Two Pair",
+        "hand_type": "two_pair",
         "icon": "fwd"
     },
     {
-        "perk_name": "Two Pair Mult",
-        "description": "Adds 6 mult if the hand is 2 Pair",
+        "id": "two_pair_mult",
         "mult": 6,
-        "hand_type": "Two Pair",
+        "hand_type": "two_pair",
         "icon": "fwd"
     },
     {
-        "perk_name": "Last",
-        "description": "Last die has 5 extra points",
+        "id": "last",
         "dice": [4],
         "dice_plus": 5
     },
     {
-        "perk_name": "First Mult",
-        "description": "Adds 5 mult to the first die",
+        "id": "first_mult",
         "dice": [0],
         "dice_mult": 5
     }
 ]
 
+static func name_key(perk_id: String) -> String:
+    return "PERK_%s_NAME" % perk_id.to_upper()
+
+static func desc_key(perk_id: String) -> String:
+    return "PERK_%s_DESC" % perk_id.to_upper()
+
 func _ready() -> void:
     print("Perk: ready")
 
 static func get_available_perks(cur_perks):
-    var cur_perk_names = cur_perks.map(func(item): return item.perk_name)
-    var available_perks = perks.filter(func(item): return not cur_perk_names.has(item.perk_name))
-    return available_perks.map(func(item): return item.perk_name)
+    var cur_perk_ids = cur_perks.map(func(item): return item.id)
+    var available_perks = perks.filter(func(item): return not cur_perk_ids.has(item.id))
+    return available_perks.map(func(item): return item.id)
 
-func get_perk(pname) -> void:
+func get_perk(perk_id) -> void:
     print("Perk: get_perk")
-    var perk = perks.filter(func(item): return item.perk_name == pname)
+    var perk = perks.filter(func(item): return item.id == perk_id)
     perk = perk[0]
     for key in perk:
         self[key] = perk[key]
     if not self.icon:
         self.icon = "default"
-    $Name.text = self.perk_name
+    $Name.text = tr(name_key(self.id))
     if $Description:
-        $Description.text = self.description
+        $Description.text = tr(desc_key(self.id))
     $Icon.texture = perk_icons[self.icon]
+
+func to_dict() -> Dictionary:
+    return {
+        "id": id,
+        "dice": dice,
+        "dice_plus": dice_plus,
+        "dice_mult": dice_mult,
+        "plus": plus,
+        "mult": mult,
+        "hand_type": hand_type,
+        "icon": icon
+    }
 
 func set_pos(x, y):
     position.x = x

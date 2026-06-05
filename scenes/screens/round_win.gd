@@ -12,10 +12,10 @@ func _ready() -> void:
     available_perks.shuffle()
     available_perks = available_perks.slice(0, 3)
     var i = 0
-    for perk_name in available_perks:
+    for perk_id in available_perks:
         var perk_instance = perk_scn.instantiate()
         $Perks.add_child(perk_instance)
-        perk_instance.get_perk(perk_name)
+        perk_instance.get_perk(perk_id)
         perk_instance.position.x = 10 + HOR_FIX * i
         perk_instance.position.y = 250
         perk_instance.perk_clicked.connect(on_perk_clicked.bind(perk_instance, i))
@@ -30,7 +30,7 @@ func on_perk_clicked(perk_clicked, index):
     if selected_perk == index:
         await perk_clicked.play_anim("Select")
         var state = get_tree().root.get_node("Main/State")
-        var data = inst_to_dict(perk_clicked)
+        var data = perk_clicked.to_dict()
         state.perks.push_back(data)
         self.Main.set_active_scene("game")
     else:

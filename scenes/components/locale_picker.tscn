@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://bupw8vacwjhbk"]
+
+[ext_resource type="Script" path="res://scenes/components/locale_picker.gd" id="1_locale"]
+
+[node name="LocalePicker" type="Control"]
+custom_minimum_size = Vector2(256, 48)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_locale")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 24.0
+theme_type_variation = &"MiniLabel"
+text = "Language"
+horizontal_alignment = 1
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 256.0
+offset_bottom = 48.0
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="English" type="Button" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "English"
+
+[node name="Spanish" type="Button" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Español"

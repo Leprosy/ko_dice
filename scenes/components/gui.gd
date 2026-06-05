@@ -9,7 +9,7 @@ func update(state: State) -> void:
     $Panel/PlayHand.disabled = not state.can_play_hand()
 
     # Update labels
-    $Panel/Round.text = "Round %s" % state.round
+    $Panel/Round.text = tr("Round %s") % state.round
     $Panel/Hands.text = str(state.hands)
     $Panel/Rolls.text = str(state.rolls)
     $Panel/Score.text = "%s/%s" % [state.score, state.get_round_score()]

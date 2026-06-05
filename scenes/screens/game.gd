@@ -31,6 +31,10 @@ func _ready() -> void:
         for i in perk.dice:
             dice[i].emit(true)
 
+func refresh_locale() -> void:
+    $GUI.update(state)
+    $ControlPanel.refresh_locale()
+
 func check_round_results():
     if state.score >= state.get_round_score():
         print("Game: round_win")
@@ -110,8 +114,8 @@ func display_hand_results() -> void:
     plus += data[0].base
     $SFX.play_sfx("info")
     await $GUI.adding_points(plus, 0, false)
-    await $GUI.display_info(data[0].name)
-    state.increase_hand(data[0].name)
+    await $GUI.display_info(tr(data[0].name_key))
+    state.increase_hand(data[0].id)
 
     # dice bonus
     for i in data[1]:
@@ -131,14 +135,14 @@ func display_hand_results() -> void:
             if perk.dice_plus:
                 $SFX.play_sfx("flash")
                 plus += perk.dice_plus
-                await self.flash_perk(perk.perk_name)
+                await self.flash_perk(perk.id)
                 $SFX.play_sfx("flash")
                 await $GUI.adding_points(plus, 0, false)
                 await $GUI.display_flash("+%s" % perk.dice_plus, die_2d[0], die_2d[1], Color.DODGER_BLUE)
             if perk.dice_mult:
                 $SFX.play_sfx("flash")
                 mult += perk.dice_mult
-                await self.flash_perk(perk.perk_name)
+                await self.flash_perk(perk.id)
                 $SFX.play_sfx("flash")
                 await $GUI.adding_points(0, mult, false)
                 await $GUI.display_flash("+%sX" % perk.dice_mult, die_2d[0], die_2d[1], Color.ORANGE)
@@ -148,7 +152,7 @@ func display_hand_results() -> void:
         if perk.plus:
             $SFX.play_sfx("info")
             plus += perk.plus
-            await self.flash_perk(perk.perk_name)
+            await self.flash_perk(perk.id)
             await $GUI.adding_points(plus, 0, false)
             await $GUI.display_info("+%s" % perk.plus)
 
@@ -163,7 +167,7 @@ func display_hand_results() -> void:
         if perk.mult:
             mult += perk.mult
             $SFX.play_sfx("info")
-            await self.flash_perk(perk.perk_name)
+            await self.flash_perk(perk.id)
             await $GUI.adding_points(0, mult, false)
             $SFX.play_sfx("info")
             await $GUI.display_info("+%sX" % perk.mult, Color.ORANGE)
@@ -171,17 +175,17 @@ func display_hand_results() -> void:
     # Total
     var points = plus * mult
     $SFX.play_sfx("end_info")
-    await $GUI.display_info("Total\n%s" % points, Color.DODGER_BLUE)
+    await $GUI.display_info(tr("Total\n%s") % points, Color.DODGER_BLUE)
     await $GUI.adding_points(0, 0, true)
     for die in dice:
         if die.selected:
             die.select()
     state.score += points
 
-func flash_perk(perk_name: String) -> void:
+func flash_perk(perk_id: String) -> void:
     var prk = perk_scn.instantiate()
     self.add_child(prk)
-    prk.get_perk(perk_name)
+    prk.get_perk(perk_id)
     prk.set_pos(100,200) # TODO: Improve positioning
     await prk.play_anim("Flash")
     prk.queue_free()

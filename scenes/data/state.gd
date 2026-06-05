@@ -11,14 +11,14 @@ var perks: Array
 var is_busy: bool
 
 var hand_data = [
-    {"name": "Knockout!", "base": 48, "mult": 7, "played": 0, "level": 1 },
-    {"name": "4 of\na kind", "base": 24, "mult": 7, "played": 0, "level": 1 },   
-    {"name": "Full\nhouse", "base": 16, "mult": 4, "played": 0, "level": 1 },   
-    {"name": "Three of\na kind", "base": 12, "mult": 3, "played": 0, "level": 1 },   
-    {"name": "Two\npairs", "base": 8, "mult": 2, "played": 0, "level": 1 },
-    {"name": "Pair", "base": 4, "mult": 2, "played": 0, "level": 1 },
-    {"name": "Straight", "base": 12, "mult": 4, "played": 0, "level": 1 },
-    {"name": "???", "base": 8, "mult": 3, "played": 0, "level": 1 },
+    {"id": "knockout", "name_key": "HAND_KNOCKOUT", "base": 48, "mult": 7, "played": 0, "level": 1 },
+    {"id": "four_of_a_kind", "name_key": "HAND_FOUR_OF_A_KIND", "base": 24, "mult": 7, "played": 0, "level": 1 },
+    {"id": "full_house", "name_key": "HAND_FULL_HOUSE", "base": 16, "mult": 4, "played": 0, "level": 1 },
+    {"id": "three_of_a_kind", "name_key": "HAND_THREE_OF_A_KIND", "base": 12, "mult": 3, "played": 0, "level": 1 },
+    {"id": "two_pairs", "name_key": "HAND_TWO_PAIRS", "base": 8, "mult": 2, "played": 0, "level": 1 },
+    {"id": "pair", "name_key": "HAND_PAIR", "base": 4, "mult": 2, "played": 0, "level": 1 },
+    {"id": "straight", "name_key": "HAND_STRAIGHT", "base": 12, "mult": 4, "played": 0, "level": 1 },
+    {"id": "high_card", "name_key": "HAND_HIGH_CARD", "base": 8, "mult": 3, "played": 0, "level": 1 },
 ]
 
 func _init():
@@ -68,9 +68,9 @@ func reset_state(new_level = false) -> void:
     is_busy = false
     print("State: reset level %s" % round)
 
-func increase_hand(hand_name: String):
+func increase_hand(hand_id: String):
     for hand in self.hand_data:
-        if hand.name == hand_name:
+        if hand.id == hand_id:
             hand.played += 1
 
 func calculate_roll(dice: Array):

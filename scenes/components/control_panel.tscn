@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://diwchjt4yfbus"]
+[gd_scene load_steps=6 format=3 uid="uid://diwchjt4yfbus"]
 
 [ext_resource type="Theme" uid="uid://de5o7pp6f0xwq" path="res://resources/UIBase.tres" id="1_m7k5j"]
 [ext_resource type="Script" uid="uid://c11j4se4yiagv" path="res://scenes/components/control_panel.gd" id="2_xbdeo"]
+[ext_resource type="PackedScene" uid="uid://c8localepicker01" path="res://scenes/components/locale_picker.tscn" id="3_locale"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7k5j"]
 bg_color = Color(0, 0, 0, 0.819608)
@@ -51,6 +52,13 @@ offset_right = 232.0
 offset_bottom = 184.0
 text = "Quit Game"
 
+[node name="LocalePicker" parent="TabContainer/Options" instance=ExtResource("3_locale")]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 192.0
+offset_right = 288.0
+offset_bottom = 240.0
+
 [node name="Label1" type="Label" parent="TabContainer/Options"]
 layout_mode = 0
 offset_left = 104.0
@@ -63,18 +71,18 @@ horizontal_alignment = 1
 [node name="Label2" type="Label" parent="TabContainer/Options"]
 layout_mode = 0
 offset_left = 56.0
-offset_top = 256.0
+offset_top = 272.0
 offset_right = 264.0
-offset_bottom = 288.0
+offset_bottom = 304.0
 text = "Current Perks"
 horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Options"]
 layout_mode = 0
 offset_left = 16.0
-offset_top = 304.0
+offset_top = 320.0
 offset_right = 304.0
-offset_bottom = 416.0
+offset_bottom = 432.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
