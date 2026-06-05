@@ -3,9 +3,49 @@ Knock Out!,Knock Out!,Knock Out!
 New Run,New Run,Nueva partida
 Credits,Credits,Creditos
 Help,Help,Ayuda
-Clear saved data,Clear saved data,Borrar datos guardados
+Clear saved data,Clear saved data,Borrar datos
 Back to Menu,Back to Menu,Volver al menú
-This is help,This is help,Esto es la ayuda
+"HELP_TEXT","Goal
+Clear each round by reaching the score target before you run out of hands. The target starts at 450 and rises by 250 each round.
+
+Your turn
+You get 4 hands and 2 rolls per hand. Tap Roll to reroll unheld dice. Tap a die to hold it — held dice are not rerolled. After both rolls are used, double-tap a die to flip it. Tap Play Hand when ready to score and use one hand. Your rolls refill for the next hand.
+
+Scoring
+Final score = (chips + bonuses) × multiplier. Each hand type gives base chips and a multiplier. Dice that form the hand add their face value (1s count as 10). Perks add extra chips or multiplier.
+
+Hands
+Knockout! (5 alike): 48 chips, ×7
+Four of a Kind: 24, ×7
+Full House: 16, ×4
+Three of a Kind: 12, ×3
+Two Pairs: 8, ×2
+Pair: 4, ×2
+Straight (1-2-3-4-6): 12, ×4
+Other: 8, ×3
+
+Perks
+After clearing a round, choose one of three perks or skip. Perks stay for the rest of your run.","Objetivo
+Supera cada ronda alcanzando la puntuación objetivo antes de quedarte sin manos. El objetivo empieza en 450 y sube 250 por ronda.
+
+Tu turno
+Tienes 4 manos y 2 tiros por mano. Pulsa Tirar para relanzar los dados no retenidos. Pulsa un dado para retenerlo — los retenidos no se relanzan. Tras usar ambos tiros, pulsa dos veces un dado para voltearlo. Pulsa Jugar Mano cuando quieras puntuar y usar una mano. Los tiros se reinician en la siguiente mano.
+
+Puntuación
+Puntuación final = (fichas + bonificaciones) × multiplicador. Cada tipo de mano da fichas base y un multiplicador. Los dados que forman la mano suman su valor (los 1 valen 10). Las ventajas añaden fichas o multiplicador extra.
+
+Manos
+Knockout! (5 iguales): 48 fichas, ×7
+4 Iguales: 24, ×7
+Full House: 16, ×4
+Tres Iguales: 12, ×3
+Dos Pares: 8, ×2
+Par: 4, ×2
+Escala (1-2-3-4-6): 12, ×4
+Otra: 8, ×3
+
+Ventajas
+Tras superar una ronda, elige una de tres ventajas o salta. Las ventajas se mantienen el resto de la partida."
 Continue,Continue,Continuar
 Quit Game,Quit Game,Salir del juego
 Options,Options,Opciones
@@ -34,7 +74,7 @@ Hands,Hands,Manos
 Score,Score,Puntos
 Roll,Roll,Tirar
 Play Hand,Play Hand,Jugar Mano
-Saved data cleared,Saved data cleared,Datos guardados borrados
+Saved data cleared,Saved data cleared,Datos borrados
 Round %s,Round %s,Ronda %s
 "Total
 %s","Total
