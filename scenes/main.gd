@@ -42,3 +42,10 @@ func update_user_data() -> void:
     var file = FileAccess.open("user://user_data.save", FileAccess.WRITE)
     file.store_var(self.user_data)
     file.close()
+
+func clear_saved_data() -> void:
+    if FileAccess.file_exists("user://user_data.save"):
+        var dir = DirAccess.open("user://")
+        if dir:
+            dir.remove("user_data.save")
+    self.user_data = {"max_round": 0}

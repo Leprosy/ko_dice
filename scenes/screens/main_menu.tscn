@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjwlrcevetkf8"]
+[gd_scene load_steps=11 format=3 uid="uid://bjwlrcevetkf8"]
 
 [ext_resource type="Script" uid="uid://c8j4blw65uxja" path="res://scenes/screens/main_menu.gd" id="1_dxijm"]
 [ext_resource type="Texture2D" uid="uid://dwtpvy6rudav1" path="res://assets/textures/wood.png" id="2_tgk1t"]
 [ext_resource type="Texture2D" uid="uid://busub7271ihti" path="res://assets/icon.png" id="3_5weqt"]
 [ext_resource type="FontFile" uid="uid://3xx2n75vrhjm" path="res://assets/fonts/font_large.ttf" id="4_kacuo"]
+[ext_resource type="PackedScene" uid="uid://c4toastmsg001" path="res://scenes/components/toast.tscn" id="5_toast"]
 
 [sub_resource type="Theme" id="Theme_idsrk"]
 
@@ -47,6 +48,36 @@ _data = {
 &"pulse": SubResource("Animation_5weqt")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+content_margin_left = 4.0
+content_margin_top = 12.0
+content_margin_right = 4.0
+content_margin_bottom = 12.0
+bg_color = Color(0.55694, 0.405113, 0.340716, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_offset = Vector2(4, 4)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 4.0
+content_margin_top = 12.0
+content_margin_right = 4.0
+content_margin_bottom = 12.0
+bg_color = Color(0.476711, 0.339766, 0.283525, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+content_margin_left = 4.0
+content_margin_top = 12.0
+content_margin_right = 4.0
+content_margin_bottom = 12.0
+bg_color = Color(0.556863, 0.403922, 0.341176, 0.498039)
+
+[sub_resource type="Theme" id="Theme_menu_buttons"]
+Button/styles/hover = SubResource("StyleBoxFlat_btn_hover")
+Button/styles/normal = SubResource("StyleBoxFlat_btn_normal")
+Button/styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_dxijm")
 
@@ -78,29 +109,38 @@ libraries = {
 &"": SubResource("AnimationLibrary_kr80i")
 }
 
-[node name="Button" type="Button" parent="."]
-offset_left = 128.0
+[node name="Buttons" type="VBoxContainer" parent="."]
+offset_left = 64.0
 offset_top = 384.0
-offset_right = 256.0
-offset_bottom = 424.0
+offset_right = 320.0
+offset_bottom = 664.0
+theme = SubResource("Theme_menu_buttons")
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="NewRun" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "New Run"
 
-[node name="Button2" type="Button" parent="."]
-offset_left = 128.0
-offset_top = 448.0
-offset_right = 256.0
-offset_bottom = 488.0
-text = "Credits
-"
+[node name="Credits" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Credits"
 
-[node name="Button3" type="Button" parent="."]
-offset_left = 128.0
-offset_top = 512.0
-offset_right = 256.0
-offset_bottom = 552.0
-text = "Help
-"
+[node name="Help" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Help"
 
-[connection signal="pressed" from="Button" to="." method="on_new_run_press"]
-[connection signal="pressed" from="Button2" to="." method="on_credit_press"]
-[connection signal="pressed" from="Button3" to="." method="on_help_pressed"]
+[node name="ClearSavedData" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Clear saved data"
+
+[node name="Toast" parent="." instance=ExtResource("5_toast")]
+
+[connection signal="pressed" from="Buttons/NewRun" to="." method="on_new_run_press"]
+[connection signal="pressed" from="Buttons/Credits" to="." method="on_credit_press"]
+[connection signal="pressed" from="Buttons/Help" to="." method="on_help_pressed"]
+[connection signal="pressed" from="Buttons/ClearSavedData" to="." method="on_clear_saved_data_press"]
