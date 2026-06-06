@@ -87,7 +87,7 @@ func get_perk(perk_id) -> void:
     if not self.icon:
         self.icon = "default"
     $Name.text = tr(name_key(self.id))
-    if $Description:
+    if not $Description == null:
         $Description.text = tr(desc_key(self.id))
     $Icon.texture = perk_icons[self.icon]
 

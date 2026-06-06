@@ -46,6 +46,27 @@ Puntuacion final = (fichas + bonificaciones) × multiplicador. Cada tipo de mano
 
 [color=#F5B700][font_size=40]Ventajas[/font_size][/color]
 Tras superar una ronda, elige una de tres ventajas o salta. Las ventajas se mantienen el resto de la partida."
+"CREDITS_TEXT","[color=#F5B700][font_size=40]Created By[/font_size][/color]
+[color=#3CA3FF]Miguel Rojas[/color]
+
+[color=#F5B700][font_size=40]Designed By[/font_size][/color]
+[color=#3CA3FF]Miguel Rojas[/color]
+
+[color=#F5B700][font_size=40]Programmed By[/font_size][/color]
+[color=#3CA3FF]Miguel Rojas[/color]
+
+[font_size=52]Brought to you by
+Leprosystems[/font_size]","[color=#F5B700][font_size=40]Creado por[/font_size][/color]
+[color=#3CA3FF]Miguel Rojas[/color]
+
+[color=#F5B700][font_size=40]Disenado por[/font_size][/color]
+[color=#3CA3FF]Miguel Rojas[/color]
+
+[color=#F5B700][font_size=40]Programado por[/font_size][/color]
+[color=#3CA3FF]Miguel Rojas[/color]
+
+[font_size=52]Presentado por
+Leprosystems[/font_size]"
 Continue,Continue,Continuar
 Quit Game,Quit Game,Salir del juego
 Options,Options,Opciones
