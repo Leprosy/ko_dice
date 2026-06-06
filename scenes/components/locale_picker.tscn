@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bupw8vacwjhbk"]
+[gd_scene load_steps=2 format=3 uid="uid://bd5p43ut4jo0q"]
 
-[ext_resource type="Script" path="res://scenes/components/locale_picker.gd" id="1_locale"]
+[ext_resource type="Script" uid="uid://bjtlm6en5pahw" path="res://scenes/components/locale_picker.gd" id="1_locale"]
 
 [node name="LocalePicker" type="Control"]
 custom_minimum_size = Vector2(256, 48)
@@ -10,8 +10,9 @@ script = ExtResource("1_locale")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
+offset_top = -8.0
 offset_right = 256.0
-offset_bottom = 24.0
+offset_bottom = 21.0
 theme_type_variation = &"MiniLabel"
 text = "Language"
 horizontal_alignment = 1
