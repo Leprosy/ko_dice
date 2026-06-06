@@ -1,6 +1,6 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://de5o7pp6f0xwq"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://de5o7pp6f0xwq"]
 
-[ext_resource type="FontFile" uid="uid://c0wpjtf3bjrcd" path="res://assets/fonts/pixel.ttf" id="1_q2ifl"]
+[ext_resource type="FontFile" uid="uid://dl22w3swkl3i0" path="res://assets/fonts/m3x6.ttf" id="1_5qtvl"]
 [ext_resource type="FontFile" uid="uid://3xx2n75vrhjm" path="res://assets/fonts/font_large.ttf" id="2_5qtvl"]
 [ext_resource type="FontFile" uid="uid://b4c2jdciu4bxj" path="res://assets/fonts/font.ttf" id="2_q2ifl"]
 
@@ -39,11 +39,6 @@ bg_color = Color(0.901961, 0.203922, 0.384314, 1)
 shadow_color = Color(0, 0, 0, 1)
 shadow_size = 2
 shadow_offset = Vector2(4, 4)
-
-[sub_resource type="FontVariation" id="FontVariation_q2ifl"]
-base_font = ExtResource("1_q2ifl")
-spacing_glyph = 1
-spacing_space = -3
 
 [sub_resource type="FontVariation" id="FontVariation_fnhyr"]
 base_font = ExtResource("2_5qtvl")
@@ -85,8 +80,10 @@ LabelInfo/base_type = &"Label"
 LabelInfo/colors/font_color = Color(0.960784, 0.717647, 0, 1)
 MiniLabel/base_type = &"Label"
 MiniLabel/constants/line_spacing = -5
-MiniLabel/font_sizes/font_size = 24
-MiniLabel/fonts/font = SubResource("FontVariation_q2ifl")
+MiniLabel/constants/shadow_offset_x = 1
+MiniLabel/constants/shadow_offset_y = 2
+MiniLabel/constants/shadow_outline_size = 3
+MiniLabel/fonts/font = ExtResource("1_5qtvl")
 TitleLabel/base_type = &"Label"
 TitleLabel/constants/line_spacing = -20
 TitleLabel/font_sizes/font_size = 40

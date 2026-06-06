@@ -23,8 +23,8 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"MiniLabel"
-autowrap_mode = 3
 text = "This is help"
+autowrap_mode = 3
 
 [node name="Button" type="Button" parent="."]
 offset_left = 64.0

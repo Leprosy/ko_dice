@@ -145,11 +145,11 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_h7icp")
 [node name="Name" type="Label" parent="."]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 16.0
-offset_right = 84.0
-offset_bottom = 64.0
+offset_top = 8.0
+offset_right = 80.0
+offset_bottom = 61.0
+theme_type_variation = &"MiniLabel"
 theme_override_colors/font_color = Color(1, 0.67451, 0, 1)
-theme_override_font_sizes/font_size = 14
 text = "Perk Name"
 horizontal_alignment = 1
 autowrap_mode = 2
