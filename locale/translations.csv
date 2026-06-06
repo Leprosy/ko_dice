@@ -5,46 +5,46 @@ Credits,Credits,Creditos
 Help,Help,Ayuda
 Clear saved data,Clear saved data,Borrar datos
 Back to Menu,Back to Menu,Volver al menu
-"HELP_TEXT","Goal
+"HELP_TEXT","[color=#F5B700][font_size=40]Goal[/font_size][/color]
 Clear each round by reaching the score target before you run out of hands. The target starts at 450 and rises by 250 each round.
 
-Your turn
+[color=#F5B700][font_size=40]Your turn[/font_size][/color]
 You get 4 hands and 2 rolls per hand. Tap Roll to reroll unheld dice. Tap a die to hold it — held dice are not rerolled. After both rolls are used, double-tap a die to flip it. Tap Play Hand when ready to score and use one hand. Your rolls refill for the next hand.
 
-Scoring
+[color=#F5B700][font_size=40]Scoring[/font_size][/color]
 Final score = (chips + bonuses) × multiplier. Each hand type gives base chips and a multiplier. Dice that form the hand add their face value (1s count as 10). Perks add extra chips or multiplier.
 
-Hands
-Knockout! (5 alike): 48 chips, ×7
-Four of a Kind: 24, ×7
-Full House: 16, ×4
-Three of a Kind: 12, ×3
-Two Pairs: 8, ×2
-Pair: 4, ×2
-Straight (1-2-3-4-6): 12, ×4
-Other: 8, ×3
+[color=#F5B700][font_size=40]Hands[/font_size][/color]
+[color=#3CA3FF]Knockout! (5 alike)[/color]: 48 chips, ×7
+[color=#3CA3FF]Four of a Kind[/color]: 24, ×7
+[color=#3CA3FF]Full House[/color]: 16, ×4
+[color=#3CA3FF]Three of a Kind[/color]: 12, ×3
+[color=#3CA3FF]Two Pairs[/color]: 8, ×2
+[color=#3CA3FF]Pair[/color]: 4, ×2
+[color=#3CA3FF]Straight (1-2-3-4-6)[/color]: 12, ×4
+[color=#3CA3FF]Other[/color]: 8, ×3
 
-Perks
-After clearing a round, choose one of three perks or skip. Perks stay for the rest of your run.","Objetivo
+[color=#F5B700][font_size=40]Perks[/font_size][/color]
+After clearing a round, choose one of three perks or skip. Perks stay for the rest of your run.","[color=#F5B700][font_size=40]Objetivo[/font_size][/color]
 Supera cada ronda alcanzando la puntuacion objetivo antes de quedarte sin manos. El objetivo empieza en 450 y sube 250 por ronda.
 
-Tu turno
+[color=#F5B700][font_size=40]Tu turno[/font_size][/color]
 Tienes 4 manos y 2 tiros por mano. Pulsa Tirar para relanzar los dados no retenidos. Pulsa un dado para retenerlo — los retenidos no se relanzan. Tras usar ambos tiros, pulsa dos veces un dado para voltearlo. Pulsa Jugar Mano cuando quieras puntuar y usar una mano. Los tiros se reinician en la siguiente mano.
 
-Puntuacion
+[color=#F5B700][font_size=40]Puntuacion[/font_size][/color]
 Puntuacion final = (fichas + bonificaciones) × multiplicador. Cada tipo de mano da fichas base y un multiplicador. Los dados que forman la mano suman su valor (los 1 valen 10). Las ventajas añaden fichas o multiplicador extra.
 
-Manos
-Knockout! (5 iguales): 48 fichas, ×7
-4 Iguales: 24, ×7
-Full House: 16, ×4
-Tres Iguales: 12, ×3
-Dos Pares: 8, ×2
-Par: 4, ×2
-Escala (1-2-3-4-6): 12, ×4
-Otra: 8, ×3
+[color=#F5B700][font_size=40]Manos[/font_size][/color]
+[color=#3CA3FF]Knockout! (5 iguales)[/color]: 48 fichas, ×7
+[color=#3CA3FF]4 Iguales[/color]: 24, ×7
+[color=#3CA3FF]Full House[/color]: 16, ×4
+[color=#3CA3FF]Tres Iguales[/color]: 12, ×3
+[color=#3CA3FF]Dos Pares[/color]: 8, ×2
+[color=#3CA3FF]Par[/color]: 4, ×2
+[color=#3CA3FF]Escala (1-2-3-4-6)[/color]: 12, ×4
+[color=#3CA3FF]Otra[/color]: 8, ×3
 
-Ventajas
+[color=#F5B700][font_size=40]Ventajas[/font_size][/color]
 Tras superar una ronda, elige una de tres ventajas o salta. Las ventajas se mantienen el resto de la partida."
 Continue,Continue,Continuar
 Quit Game,Quit Game,Salir del juego

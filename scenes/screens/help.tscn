@@ -19,12 +19,14 @@ offset_right = 368.0
 offset_bottom = 624.0
 horizontal_scroll_mode = 0
 
-[node name="Body" type="Label" parent="ScrollContainer"]
+[node name="Body" type="RichTextLabel" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = &"MiniLabel"
+theme_type_variation = &"HelpText"
+bbcode_enabled = true
 text = "This is help"
-autowrap_mode = 3
+fit_content = true
+scroll_active = false
 
 [node name="Button" type="Button" parent="."]
 offset_left = 64.0
