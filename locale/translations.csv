@@ -4,7 +4,7 @@ New Run,New Run,Nueva partida
 Credits,Credits,Creditos
 Help,Help,Ayuda
 Clear saved data,Clear saved data,Borrar datos
-Back to Menu,Back to Menu,Volver al menú
+Back to Menu,Back to Menu,Volver al menu
 "HELP_TEXT","Goal
 Clear each round by reaching the score target before you run out of hands. The target starts at 450 and rises by 250 each round.
 
@@ -26,13 +26,13 @@ Other: 8, ×3
 
 Perks
 After clearing a round, choose one of three perks or skip. Perks stay for the rest of your run.","Objetivo
-Supera cada ronda alcanzando la puntuación objetivo antes de quedarte sin manos. El objetivo empieza en 450 y sube 250 por ronda.
+Supera cada ronda alcanzando la puntuacion objetivo antes de quedarte sin manos. El objetivo empieza en 450 y sube 250 por ronda.
 
 Tu turno
 Tienes 4 manos y 2 tiros por mano. Pulsa Tirar para relanzar los dados no retenidos. Pulsa un dado para retenerlo — los retenidos no se relanzan. Tras usar ambos tiros, pulsa dos veces un dado para voltearlo. Pulsa Jugar Mano cuando quieras puntuar y usar una mano. Los tiros se reinician en la siguiente mano.
 
-Puntuación
-Puntuación final = (fichas + bonificaciones) × multiplicador. Cada tipo de mano da fichas base y un multiplicador. Los dados que forman la mano suman su valor (los 1 valen 10). Las ventajas añaden fichas o multiplicador extra.
+Puntuacion
+Puntuacion final = (fichas + bonificaciones) × multiplicador. Cada tipo de mano da fichas base y un multiplicador. Los dados que forman la mano suman su valor (los 1 valen 10). Las ventajas añaden fichas o multiplicador extra.
 
 Manos
 Knockout! (5 iguales): 48 fichas, ×7
